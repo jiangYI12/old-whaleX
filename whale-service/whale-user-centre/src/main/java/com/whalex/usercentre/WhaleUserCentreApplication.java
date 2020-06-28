@@ -1,14 +1,14 @@
-package com.whalex.whaleauth;
+package com.whalex.usercentre;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.SpringCloudApplication;
 
 @SpringCloudApplication
-public class WhaleAuthApplication {
+public class WhaleUserCentreApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(WhaleAuthApplication.class, args);
+        SpringApplication.run(WhaleUserCentreApplication.class, args);
     }
 
 }

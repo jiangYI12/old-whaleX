@@ -2,6 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
     <parent>
         <groupId>com.whaleX</groupId>
         <artifactId>whalex</artifactId>
@@ -9,17 +10,14 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <packaging>jar</packaging>
-    <artifactId>whale-auth</artifactId>
+    <artifactId>whale-user-centre</artifactId>
     <version>${whalex.version}</version>
-    <name>whale-auth</name>
-    <description>whaleX 授权中心</description>
+    <packaging>jar</packaging>
+    <name>whale-user-centre</name>
+    <description>whalex 用户中心</description>
+
 
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-oauth2</artifactId>
-        </dependency>
         <!--注册中心客户端-->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
@@ -57,20 +55,11 @@
         </dependency>
     </dependencies>
 
-
-
     <build>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>io.fabric8</groupId>
-                <artifactId>docker-maven-plugin</artifactId>
-                <configuration>
-                    <skip>false</skip>
-                </configuration>
             </plugin>
         </plugins>
     </build>

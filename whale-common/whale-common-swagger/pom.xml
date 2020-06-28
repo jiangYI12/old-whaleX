@@ -6,13 +6,11 @@
         <artifactId>whalex</artifactId>
         <groupId>com.whaleX</groupId>
         <version>1.0.0</version>
+        <relativePath/>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>whale-service-api</artifactId>
-    <version>${whalex.version}</version>
+    <artifactId>whale-common-swagger</artifactId>
 
-    <modules>
 
-    </modules>
 </project>

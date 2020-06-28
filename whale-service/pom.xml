@@ -5,14 +5,16 @@
     <parent>
         <artifactId>whalex</artifactId>
         <groupId>com.whaleX</groupId>
-        <version>whaleX-1.0.0</version>
+        <version>1.0.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>whale-service</artifactId>
+    <version>${whalex.version}</version>
 
     <modules>
 
     </modules>
 
+    <dependencies></dependencies>
 </project>

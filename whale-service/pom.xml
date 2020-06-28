@@ -13,8 +13,12 @@
     <version>${whalex.version}</version>
 
     <modules>
-
+        <module>whale-message-centre</module>
+        <module>whale-user-centre</module>
+        <module>whale-user-centre</module>
     </modules>
 
-    <dependencies></dependencies>
+    <dependencies>
+
+    </dependencies>
 </project>

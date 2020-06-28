@@ -3,14 +3,14 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>whale-common</artifactId>
+        <artifactId>whale-service</artifactId>
         <groupId>com.whaleX</groupId>
         <version>1.0.0</version>
         <relativePath/>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>whale-common-fegin</artifactId>
+    <artifactId>whale-pay-order</artifactId>
 
 
 </project>

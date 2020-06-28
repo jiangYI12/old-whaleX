@@ -4,10 +4,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
+        <artifactId>whale-service</artifactId>
         <groupId>com.whaleX</groupId>
-        <artifactId>whalex</artifactId>
         <version>1.0.0</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath/>
     </parent>
 
     <artifactId>whale-user-centre</artifactId>

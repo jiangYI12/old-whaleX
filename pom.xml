@@ -18,9 +18,6 @@
         <module>whale-service-api</module>
         <module>whale-ops</module>
         <module>whale-common</module>
-        <module>whale-common/whale-common-security</module>
-        <module>whale-common/whale-common-log</module>
-        <module>whale-common/whale-common-swagger</module>
     </modules>
 
     <properties>

@@ -6,12 +6,11 @@
         <groupId>com.whaleX</groupId>
         <artifactId>whalex</artifactId>
         <version>1.0.0</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <packaging>jar</packaging>
     <artifactId>whale-auth</artifactId>
-    <version>${whalex.version}</version>
     <name>whale-auth</name>
     <description>whaleX 授权中心</description>
 
@@ -64,12 +63,17 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                    <finalName>${project.name}</finalName>
+                </configuration>
             </plugin>
             <plugin>
-                <groupId>io.fabric8</groupId>
+                <groupId>com.spotify</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
+                <version>${docker.plugin.version}</version>
                 <configuration>
-                    <skip>false</skip>
+                    <skipDockerBuild>true</skipDockerBuild>
                 </configuration>
             </plugin>
         </plugins>

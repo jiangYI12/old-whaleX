@@ -6,13 +6,11 @@
         <groupId>com.whaleX</groupId>
         <artifactId>whalex</artifactId>
         <version>1.0.0</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <groupId>com.whaleX</groupId>
+    <packaging>jar</packaging>
     <artifactId>whale-gateway</artifactId>
-    <version>${whalex.version}</version>
-    <name>whale-gateway</name>
     <description>whale 网关</description>
 
     <dependencies>
@@ -22,4 +20,24 @@
         </dependency>
     </dependencies>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                    <finalName>${project.name}</finalName>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>${docker.plugin.version}</version>
+                <configuration>
+                    <skipDockerBuild>true</skipDockerBuild>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

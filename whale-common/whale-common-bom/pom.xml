@@ -6,7 +6,6 @@
         <artifactId>spring-cloud-dependencies-parent</artifactId>
         <groupId>org.springframework.cloud</groupId>
         <version>2.3.0.RELEASE</version>
-        <relativePath/>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
@@ -29,6 +28,36 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>com.whaleX</groupId>
+                <artifactId>whale-common-core</artifactId>
+                <version>${whalex.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.whaleX</groupId>
+                <artifactId>whale-common-tool</artifactId>
+                <version>${whalex.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.whaleX</groupId>
+                <artifactId>whale-common-fegin</artifactId>
+                <version>${whalex.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.whaleX</groupId>
+                <artifactId>whale-common-security</artifactId>
+                <version>${whalex.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.whaleX</groupId>
+                <artifactId>whale-common-swagger</artifactId>
+                <version>${whalex.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.whaleX</groupId>
+                <artifactId>whale-common-log</artifactId>
+                <version>${whalex.version}</version>
+            </dependency>
             <!--mybatis plus extension,包含了mybatis plus core-->
             <dependency>
                 <groupId>com.baomidou</groupId>

@@ -17,7 +17,6 @@
         <module>whale-service</module>
         <module>whale-service-api</module>
         <module>whale-ops</module>
-        <module>whale-common</module>
     </modules>
 
     <properties>
@@ -27,7 +26,9 @@
         <spring-cloud-alibaba.version>2.2.1.RELEASE</spring-cloud-alibaba.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
+        <jackson.version>2.11.1</jackson.version>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <hutool.version>5.3.7</hutool.version>
         <maven.compiler.version>3.6.1</maven.compiler.version>
         <spring-boot-admin.version>2.2.3</spring-boot-admin.version>
         <jasypt.version>2.1.1</jasypt.version>
@@ -40,11 +41,20 @@
         <docker.password>Harbor12345</docker.password>
         <git.commit.version>2.2.5</git.commit.version>
         <spring.checkstyle.version>0.0.22</spring.checkstyle.version>
-        <docker.plugin.version>0.32.0</docker.plugin.version>
+        <docker.plugin.version>1.2.0</docker.plugin.version>
     </properties>
 
     <dependencies>
-
+        <!--swagger 依赖-->
+        <dependency>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-annotations</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
         <!--配置文件处理器-->
         <dependency>
             <groupId>org.springframework.boot</groupId>

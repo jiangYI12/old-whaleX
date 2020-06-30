@@ -6,14 +6,12 @@
         <artifactId>whalex</artifactId>
         <groupId>com.whaleX</groupId>
         <version>1.0.0</version>
-        <relativePath/>
+        <relativePath>../pom.xml</relativePath>
     </parent>
+    <packaging>jar</packaging>
     <modelVersion>4.0.0</modelVersion>
-    <packaging>pom</packaging>
-    <artifactId>whale-ops</artifactId>
-    <version>${whalex.version}</version>
-    <modules>
 
-    </modules>
+    <artifactId>whale-common-tool</artifactId>
+
 
 </project>

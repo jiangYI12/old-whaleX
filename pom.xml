@@ -20,7 +20,6 @@
     </modules>
 
     <properties>
-        <whalex.version>1.0.0</whalex.version>
         <spring-boot.version>2.3.1.RELEASE</spring-boot.version>
         <spring-cloud.version>Hoxton.SR5</spring-cloud.version>
         <spring-cloud-alibaba.version>2.2.1.RELEASE</spring-cloud-alibaba.version>
@@ -35,21 +34,16 @@
         <!--  默认忽略docker构建 -->
         <docker.skip>true</docker.skip>
         <docker.registry>172.17.0.111</docker.registry>
-        <docker.host>http://172.17.0.111:2375</docker.host>
+        <docker.host>http://192.168.72.133:2375</docker.host>
         <docker.namespace>library</docker.namespace>
         <docker.username>admin</docker.username>
-        <docker.password>Harbor12345</docker.password>
+        <docker.password>123456789</docker.password>
         <git.commit.version>2.2.5</git.commit.version>
         <spring.checkstyle.version>0.0.22</spring.checkstyle.version>
         <docker.plugin.version>1.2.0</docker.plugin.version>
     </properties>
 
     <dependencies>
-        <!--swagger 依赖-->
-        <dependency>
-            <groupId>io.swagger</groupId>
-            <artifactId>swagger-annotations</artifactId>
-        </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
@@ -97,7 +91,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>whale-common-bom</artifactId>
-                <version>${whalex.version}</version>
+                <version>${project.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -223,12 +217,31 @@
         </plugins>
     </build>
 
-    <repositories>
-        <!--阿里云代理-->
-        <repository>
-            <id>aliyun</id>
-            <name>aliyun</name>
-            <url>http://maven.aliyun.com/nexus/content/groups/public</url>
-        </repository>
-    </repositories>
+
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <properties>
+                <!-- 环境标识，需要与配置文件的名称相对应 -->
+                <profiles.active>dev</profiles.active>
+            </properties>
+            <activation>
+                <!-- 默认环境 -->
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <id>test</id>
+            <properties>
+                <profiles.active>test</profiles.active>
+            </properties>
+        </profile>
+        <profile>
+            <id>prod</id>
+            <properties>
+                <profiles.active>prod</profiles.active>
+            </properties>
+        </profile>
+    </profiles>
+
 </project>

@@ -6,20 +6,15 @@
         <artifactId>whalex</artifactId>
         <groupId>com.whaleX</groupId>
         <version>1.0.0</version>
-        <relativePath>../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <packaging>pom</packaging>
     <artifactId>whale-service</artifactId>
-    <version>${whalex.version}</version>
 
     <modules>
         <module>whale-message-centre</module>
         <module>whale-user-centre</module>
-        <module>whale-user-centre</module>
+        <module>whale-pay-order</module>
     </modules>
-
-    <dependencies>
-
-    </dependencies>
 </project>

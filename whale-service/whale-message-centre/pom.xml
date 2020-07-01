@@ -6,7 +6,6 @@
         <artifactId>whale-service</artifactId>
         <groupId>com.whaleX</groupId>
         <version>1.0.0</version>
-        <relativePath>../pom.xml</relativePath>
     </parent>
     <packaging>jar</packaging>
     <modelVersion>4.0.0</modelVersion>

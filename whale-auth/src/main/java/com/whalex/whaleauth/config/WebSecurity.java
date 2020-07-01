@@ -1,5 +1,6 @@
 package com.whalex.whaleauth.config;
 
+import com.whalex.whaleauth.entity.JwtTokenEnhancer;
 import lombok.SneakyThrows;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -55,4 +56,8 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
     }
 
 
+    @Bean
+    public JwtTokenEnhancer jwtTokenEnhancer(){
+        return new JwtTokenEnhancer();
+    }
 }

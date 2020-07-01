@@ -58,6 +58,10 @@
             <groupId>com.whaleX</groupId>
             <artifactId>whale-common-mybatisPlus</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.whaleX</groupId>
+            <artifactId>whale-common-security</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

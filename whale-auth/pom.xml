@@ -15,8 +15,8 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-oauth2</artifactId>
+            <groupId>com.whaleX</groupId>
+            <artifactId>whale-common-security</artifactId>
         </dependency>
         <!--注册中心客户端-->
         <dependency>

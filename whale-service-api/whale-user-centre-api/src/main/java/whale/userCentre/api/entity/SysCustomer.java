@@ -1,6 +1,8 @@
-package whale.userCentreApi.entity;
+package whale.userCentre.api.entity;
 import lombok.Data;
 import whale.common.mybatisPlus.baseEntity.TenantEntity;
+
+import java.util.List;
 
 /**
  * sys_customer
@@ -14,13 +16,12 @@ public class SysCustomer extends TenantEntity {
     /**
      * 用户名
      */
-    private String customerName;
+    private String username;
 
     /**
      * 密码
      */
     private String password;
-
 
     /**
      * 手机号

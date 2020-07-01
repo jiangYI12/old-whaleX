@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="generate.SysResourcesMapper">
+  <resultMap id="BaseResultMap" type="whale.userCentre.api.entity.SysResources">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="path" jdbcType="VARCHAR" property="path" />
+    <result column="code" jdbcType="VARCHAR" property="code" />
+    <result column="icon" jdbcType="VARCHAR" property="icon" />
+    <result column="parent_id" jdbcType="BIGINT" property="parentId" />
+    <result column="is_parent" jdbcType="INTEGER" property="isParent" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+    <result column="is_delete" jdbcType="INTEGER" property="isDelete" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="tenant_code" jdbcType="VARCHAR" property="tenantCode" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, `name`, `path`, code, icon, parent_id, is_parent, sort, is_delete, create_time, 
+    update_time, `status`, tenant_code
+  </sql>
+
+</mapper>

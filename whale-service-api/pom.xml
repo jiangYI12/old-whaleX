@@ -13,6 +13,14 @@
 
     <modules>
         <module>whale-user-centre-api</module>
+        <module>whale-service-bom</module>
     </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.whaleX</groupId>
+            <artifactId>whale-common-mybatisPlus</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>

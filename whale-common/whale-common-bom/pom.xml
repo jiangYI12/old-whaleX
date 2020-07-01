@@ -56,7 +56,17 @@
             </dependency>
             <dependency>
                 <groupId>com.whaleX</groupId>
+                <artifactId>whale-common-mybatisPlus</artifactId>
+                <version>${whalex.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.whaleX</groupId>
                 <artifactId>whale-common-log</artifactId>
+                <version>${whalex.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.whaleX</groupId>
+                <artifactId>whale-common-tool</artifactId>
                 <version>${whalex.version}</version>
             </dependency>
             <!--mybatis plus extension,包含了mybatis plus core-->

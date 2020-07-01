@@ -1,15 +1,13 @@
-package generate;
-
-import java.io.Serializable;
-import java.util.Date;
+package whale.userCentreApi.entity;
 import lombok.Data;
+import whale.common.mybatisPlus.baseEntity.TenantEntity;
 
 /**
  * sys_customer
  * @author 
  */
 @Data
-public class SysCustomer   {
+public class SysCustomer extends TenantEntity {
 
     private String account;
 

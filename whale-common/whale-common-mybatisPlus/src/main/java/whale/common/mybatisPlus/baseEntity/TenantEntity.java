@@ -19,7 +19,7 @@ public class TenantEntity extends BaseEntity {
      * 租户ID
      */
     @ApiModelProperty(value = "租户ID")
-    private String tenantId;
+    private String tenantCode;
 
     /**
      * 创建人

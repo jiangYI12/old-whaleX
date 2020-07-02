@@ -62,6 +62,10 @@
             <groupId>com.whaleX</groupId>
             <artifactId>whale-common-security</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.whaleX</groupId>
+            <artifactId>whale-common-mvc</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

@@ -21,6 +21,14 @@
             <groupId>com.whaleX</groupId>
             <artifactId>whale-common-mybatisPlus</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.whaleX</groupId>
+            <artifactId>whale-common-fegin</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.whaleX</groupId>
+            <artifactId>whale-common-core</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

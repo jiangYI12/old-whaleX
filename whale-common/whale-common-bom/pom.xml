@@ -46,6 +46,11 @@
             </dependency>
             <dependency>
                 <groupId>com.whaleX</groupId>
+                <artifactId>whale-common-mvc</artifactId>
+                <version>${whalex.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.whaleX</groupId>
                 <artifactId>whale-common-security</artifactId>
                 <version>${whalex.version}</version>
             </dependency>

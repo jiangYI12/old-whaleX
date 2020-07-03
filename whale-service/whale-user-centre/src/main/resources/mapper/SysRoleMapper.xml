@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="generate.SysRoleMapper">
+<mapper namespace="com.whalex.usercentre.mapper.SysRoleMapper">
   <resultMap id="BaseResultMap" type="whale.userCentre.api.entity.SysRole">
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="tenant_code" jdbcType="VARCHAR" property="tenantCode" />
@@ -16,5 +16,11 @@
     id, tenant_code, role_name, role_code, role_desc, is_delete, create_time, update_time, 
     `status`
   </sql>
+
+  <select id="getCustomerRoleById" parameterType="java.lang.Integer" resultType="whale.userCentre.api.vo.SysRoleVO">
+    SELECT cRole.* FROM sys_customer_role as cRole
+    LEFT JOIN sys_role cRole on role.id = cRole.role_id
+    WHERE cRole.customer_id = #{customerId};
+  </select>
 
 </mapper>

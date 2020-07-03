@@ -60,5 +60,5 @@ public class BaseEntity {
      */
     @TableLogic
     @ApiModelProperty(value = "是否已删除")
-    private Integer isDeleted;
+    private Integer isDelete;
 }

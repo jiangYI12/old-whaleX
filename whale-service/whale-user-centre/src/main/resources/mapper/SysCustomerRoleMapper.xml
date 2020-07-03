@@ -7,4 +7,5 @@
     <result column="role_id" jdbcType="BIGINT" property="roleId" />
   </resultMap>
 
+
 </mapper>

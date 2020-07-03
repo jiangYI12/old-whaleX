@@ -3,16 +3,14 @@ package whale.userCentre.api.entity;
 import java.io.Serializable;
 import java.util.Date;
 import lombok.Data;
+import whale.common.mybatisPlus.baseEntity.TenantEntity;
 
 /**
  * sys_role
  * @author 
  */
 @Data
-public class SysRole implements Serializable {
-    private Long id;
-
-    private String tenantCode;
+public class SysRole extends TenantEntity {
 
     /**
      * 角色名中文
@@ -29,16 +27,6 @@ public class SysRole implements Serializable {
      */
     private String roleDesc;
 
-    /**
-     * 是否删除 0未删除 1删除
-     */
-    private Integer isDelete;
-
-    private Date createTime;
-
-    private Date updateTime;
-
-    private Integer status;
 
     private static final long serialVersionUID = 1L;
 }

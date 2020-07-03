@@ -6,6 +6,7 @@ import com.whalex.usercentre.service.ISysRoleService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import whale.userCentre.api.entity.SysRole;
+import whale.userCentre.api.vo.SysRoleVO;
 
 /**
  * Description:
@@ -18,4 +19,8 @@ import whale.userCentre.api.entity.SysRole;
 @Service
 public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> implements ISysRoleService {
 
+    @Override
+    public SysRoleVO getCustomerRoleById(Long customerId) {
+        return this.baseMapper.getCustomerRoleById(customerId);
+    }
 }

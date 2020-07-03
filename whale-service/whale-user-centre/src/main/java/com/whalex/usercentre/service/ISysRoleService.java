@@ -5,6 +5,8 @@ import org.apache.ibatis.annotations.Param;
 import whale.userCentre.api.entity.SysRole;
 import whale.userCentre.api.vo.SysRoleVO;
 
+import java.util.List;
+
 /**
  * Description:
  *
@@ -12,6 +14,6 @@ import whale.userCentre.api.vo.SysRoleVO;
  * date: 2020/7/2 21:57
  */
 public interface ISysRoleService extends IService<SysRole> {
-    SysRoleVO  getCustomerRoleById(Long customerId);
+    List<SysRoleVO> getCustomerRoleById(Long customerId);
 
 }

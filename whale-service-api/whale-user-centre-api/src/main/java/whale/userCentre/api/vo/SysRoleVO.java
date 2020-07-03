@@ -1,7 +1,7 @@
 package whale.userCentre.api.vo;
 
 import lombok.Data;
-import whale.userCentre.api.entity.SysPermission;
+import whale.userCentre.api.entity.SysMenu;
 import whale.userCentre.api.entity.SysRole;
 
 import java.util.List;
@@ -14,5 +14,5 @@ import java.util.List;
  */
 @Data
 public class SysRoleVO extends SysRole {
-    private List<SysPermission> permissions;
+    private List<SysMenu> sysMenus;
 }

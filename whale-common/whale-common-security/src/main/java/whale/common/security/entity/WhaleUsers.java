@@ -1,11 +1,15 @@
 package whale.common.security.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 
+import java.io.Serializable;
 import java.util.Collection;
+import java.util.List;
 
 /**
  * Description:
@@ -15,7 +19,7 @@ import java.util.Collection;
  */
 @Getter
 @Setter
-public class WhaleUsers extends User {
+public class WhaleUsers implements Serializable {
 
     private Long id;
 
@@ -41,16 +45,11 @@ public class WhaleUsers extends User {
      */
     private String avatar;
 
+    private List<String> roles;
+
+    private List<Long> roleIds;
 
     private static final long serialVersionUID = 1L;
 
-    
-    public WhaleUsers(String account,String avatar,Long id,String phone,String username,String password, Collection<? extends GrantedAuthority> authorities) {
-        super(account, password, authorities);
-        this.id = id;
-        this.avatar = avatar;
-        this.phone = phone;
-        this.username = username;
-    }
 
 }

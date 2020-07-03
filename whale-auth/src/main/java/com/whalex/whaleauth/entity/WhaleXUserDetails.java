@@ -12,6 +12,8 @@ import java.util.Collection;
 @Setter
 public class WhaleXUserDetails extends User {
 
+    private Long id;
+
     private String account;
 
     /**
@@ -35,10 +37,17 @@ public class WhaleXUserDetails extends User {
      */
     private String avatar;
 
+    private String username;
+    
 
 
-    public WhaleXUserDetails(String username, String password, Collection<? extends GrantedAuthority> authorities) {
-        super(username, password, authorities);
+    public WhaleXUserDetails(String account,String avatar,Long id,String phone,String username,String password, Collection<? extends GrantedAuthority> authorities) {
+        super(account, password, authorities);
+        this.id = id;
+        this.avatar = avatar;
+        this.phone = phone;
+        this.username = username;
     }
+
 
 }

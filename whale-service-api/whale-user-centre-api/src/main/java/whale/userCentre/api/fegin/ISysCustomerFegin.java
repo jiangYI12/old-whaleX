@@ -1,10 +1,11 @@
 package whale.userCentre.api.fegin;
 
-import com.baomidou.mybatisplus.extension.api.R;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import whale.common.core.constant.SysServiceConstant;
 import whale.common.fegin.constant.FeginClientURL;
+import whale.common.mvc.returnResult.R;
 import whale.userCentre.api.vo.SysCustomerVO;
 
 /**
@@ -21,6 +22,6 @@ public interface ISysCustomerFegin {
     String GET_SYSCUSTOMER_BY_ACCOUNT = PREFIX + "/getSysCustomerByAccount";
 
     @GetMapping(value =  GET_SYSCUSTOMER_BY_ACCOUNT)
-    R<SysCustomerVO> getSysCustomerByAccount(String account);
+    R<SysCustomerVO> getSysCustomerByAccount(@RequestParam("account") String account, @RequestParam("tenantCode") String tenantCode);
 
 }

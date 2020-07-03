@@ -29,6 +29,10 @@
             <groupId>com.whaleX</groupId>
             <artifactId>whale-common-core</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.whaleX</groupId>
+            <artifactId>whale-common-mvc</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

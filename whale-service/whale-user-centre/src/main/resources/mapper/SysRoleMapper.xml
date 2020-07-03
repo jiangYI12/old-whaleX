@@ -12,12 +12,32 @@
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="status" jdbcType="INTEGER" property="status" />
   </resultMap>
+
+
+  <resultMap id="BaseResultMapVO" type="whale.userCentre.api.vo.SysRoleVO">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="tenant_code" jdbcType="VARCHAR" property="tenantCode" />
+    <result column="role_name" jdbcType="VARCHAR" property="roleName" />
+    <result column="role_code" jdbcType="VARCHAR" property="roleCode" />
+    <result column="role_desc" jdbcType="VARCHAR" property="roleDesc" />
+    <result column="is_delete" jdbcType="INTEGER" property="isDelete" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <collection property="sysMenus" javaType="ArrayList"
+                select="com.whalex.usercentre.mapper.SysMenuMapper.getMenuByRoleId"
+                ofType="whale.userCentre.api.entity.SysMenu"
+                resultMap="com.whalex.usercentre.mapper.SysMenuMapper.BaseResultMap">
+    </collection>
+  </resultMap>
+
   <sql id="Base_Column_List">
     id, tenant_code, role_name, role_code, role_desc, is_delete, create_time, update_time, 
     `status`
   </sql>
 
-  <select id="getCustomerRoleById" parameterType="java.lang.Integer" resultType="whale.userCentre.api.vo.SysRoleVO">
+
+  <select id="getCustomerRoleById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     SELECT cRole.* FROM sys_customer_role as cRole
     LEFT JOIN sys_role cRole on role.id = cRole.role_id
     WHERE cRole.customer_id = #{customerId};

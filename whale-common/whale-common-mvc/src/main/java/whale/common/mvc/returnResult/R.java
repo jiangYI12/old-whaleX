@@ -15,6 +15,7 @@ import whale.common.mvc.constant.ResultStatus;
 @Builder
 @ToString
 @Setter
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Accessors(chain = true)

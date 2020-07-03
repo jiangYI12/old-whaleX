@@ -4,16 +4,16 @@ import java.io.Serializable;
 import lombok.Data;
 
 /**
- * sys_re_per
+ * sys_role_menu
  * @author 
  */
 @Data
-public class SysRePer implements Serializable {
+public class SysRoleMenu implements Serializable {
     private Long id;
 
-    private Long resourceId;
+    private Long roleId;
 
-    private Long permissionId;
+    private Long menuId;
 
     private static final long serialVersionUID = 1L;
 }

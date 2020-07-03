@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import whale.userCentre.api.entity.SysRole;
 import whale.userCentre.api.vo.SysRoleVO;
 
+import java.util.List;
+
 /**
  * Description:
  *
@@ -20,7 +22,7 @@ import whale.userCentre.api.vo.SysRoleVO;
 public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> implements ISysRoleService {
 
     @Override
-    public SysRoleVO getCustomerRoleById(Long customerId) {
+    public List<SysRoleVO> getCustomerRoleById(Long customerId) {
         return this.baseMapper.getCustomerRoleById(customerId);
     }
 }

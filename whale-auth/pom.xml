@@ -57,6 +57,10 @@
             <groupId>com.whaleX</groupId>
             <artifactId>whale-user-centre-api</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.whaleX</groupId>
+            <artifactId>whale-common-mvc</artifactId>
+        </dependency>
     </dependencies>
 
 

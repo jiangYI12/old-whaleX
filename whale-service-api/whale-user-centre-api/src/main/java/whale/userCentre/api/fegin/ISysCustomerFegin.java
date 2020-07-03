@@ -4,9 +4,9 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import whale.common.core.constant.SysServiceConstant;
+import whale.common.core.returnResult.R;
 import whale.common.fegin.constant.FeginClientURL;
-import whale.common.mvc.returnResult.R;
-import whale.userCentre.api.vo.SysCustomerVO;
+import whale.common.security.entity.WhaleUsers;
 
 /**
  * Description:
@@ -22,6 +22,6 @@ public interface ISysCustomerFegin {
     String GET_SYSCUSTOMER_BY_ACCOUNT = PREFIX + "/getSysCustomerByAccount";
 
     @GetMapping(value =  GET_SYSCUSTOMER_BY_ACCOUNT)
-    R<SysCustomerVO> getSysCustomerByAccount(@RequestParam("account") String account, @RequestParam("tenantCode") String tenantCode);
+    R<WhaleUsers> getSysCustomerByAccount(@RequestParam("account") String account, @RequestParam("tenantCode") String tenantCode);
 
 }

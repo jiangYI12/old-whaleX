@@ -1,10 +1,10 @@
-package whale.common.mvc.returnResult;
+package whale.common.core.returnResult;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
 import lombok.experimental.Accessors;
-import whale.common.mvc.constant.ResultStatus;
+import whale.common.core.constant.ResultStatus;
 
 /**
  * Description: 控制层统一返回结果

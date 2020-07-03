@@ -55,9 +55,4 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
-
-    @Bean
-    public JwtTokenEnhancer jwtTokenEnhancer(){
-        return new JwtTokenEnhancer();
-    }
 }

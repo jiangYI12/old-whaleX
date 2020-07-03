@@ -1,4 +1,4 @@
-package whale.common.mvc.constant;
+package whale.common.core.constant;
 
 /** 结果状态返回
  * Description:

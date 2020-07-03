@@ -11,6 +11,11 @@
     <packaging>jar</packaging>
     <artifactId>whale-user-centre-api</artifactId>
 
-
+    <dependencies>
+        <dependency>
+            <groupId>com.whaleX</groupId>
+            <artifactId>whale-common-security</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>

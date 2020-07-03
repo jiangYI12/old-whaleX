@@ -1,11 +1,9 @@
 package com.whalex.usercentre.service.impl;
 
 import cn.hutool.core.util.ObjectUtil;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.whalex.usercentre.mapper.SysCustomerMapper;
 import com.whalex.usercentre.service.ISysCustomerService;
-import com.whalex.usercentre.service.ISysMenuService;
 import com.whalex.usercentre.service.ISysRoleService;
 import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
@@ -18,10 +16,8 @@ import whale.userCentre.api.entity.SysMenu;
 import whale.userCentre.api.vo.SysCustomerVO;
 import whale.userCentre.api.vo.SysRoleVO;
 
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Description:
@@ -38,7 +34,7 @@ public class SysCustomerServiceImpl extends ServiceImpl<SysCustomerMapper, SysCu
 
     @Override
     @SneakyThrows
-    public SysCustomerVO selectUserAndRoleByAccount(String account,String tenantCode) {
+    public WhaleUsers selectUserAndRoleByAccount(String account,String tenantCode) {
         SysCustomerVO sysCustomerVO = new SysCustomerVO();
         sysCustomerVO.setAccount(account);
         sysCustomerVO.setTenantCode(tenantCode);
@@ -46,11 +42,25 @@ public class SysCustomerServiceImpl extends ServiceImpl<SysCustomerMapper, SysCu
         if(ObjectUtil.isEmpty(sysCustomerVO)){
             throw new ServiceException("用户不存在");
         }
-
-
+        WhaleUsers whaleUsers = new WhaleUsers();
+        BeanUtils.copyProperties(sysCustomerVO,whaleUsers);
         //查找用户角色
         List<SysRoleVO> sysRoleVOs = iSysRoleService.getCustomerRoleById(sysCustomerVO.getId());
         sysCustomerVO.setRoles(sysRoleVOs);
-        return sysCustomerVO;
+            BeanUtils.copyProperties(sysCustomerVO,whaleUsers);
+
+            List<String> roles = new LinkedList<>();
+            List<String> permissions = new LinkedList<>();
+        //获取权限
+            for (SysRoleVO s:sysRoleVOs) {
+                roles.add(s.getRoleName());
+                for (SysMenu sysMenu:s.getSysMenus()) {
+                    permissions.add(sysMenu.getPermissionName());
+                }
+            }
+            whaleUsers.setRoles(roles);
+            whaleUsers.setPermissions(permissions);
+
+        return whaleUsers;
     }
 }

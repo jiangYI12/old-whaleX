@@ -8,4 +8,6 @@ package whale.common.security.constant;
  */
 public interface TokenConstant {
     String SIGN_KEY = "whaleX";
+    String INNER = "inner";
+    String INNER_VALUE = "whaleX_inner";
 }

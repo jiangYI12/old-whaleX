@@ -1,6 +1,5 @@
 package com.whalex.whaleauth.config;
 
-import com.whalex.whaleauth.entity.JwtTokenEnhancer;
 import lombok.SneakyThrows;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,8 +10,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
- * @author lengleng
- * @date 2018/6/22
  * 认证相关配置
  */
 @Configuration

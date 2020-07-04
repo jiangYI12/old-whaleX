@@ -23,6 +23,10 @@
             <groupId>io.github.openfeign</groupId>
             <artifactId>feign-core</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.whaleX</groupId>
+            <artifactId>whale-common-core</artifactId>
+        </dependency>
         <!--aop-->
         <dependency>
             <groupId>org.aspectj</groupId>

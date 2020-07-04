@@ -26,8 +26,6 @@ import whale.common.security.constant.TokenConstant;
 
 /**
  * JwtTokenStore
- *
- * @author Chill
  */
 @Configuration
 public class JwtTokenStoreConfiguration {

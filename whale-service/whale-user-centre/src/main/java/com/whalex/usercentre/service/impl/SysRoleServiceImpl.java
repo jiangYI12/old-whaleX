@@ -5,8 +5,8 @@ import com.whalex.usercentre.mapper.SysRoleMapper;
 import com.whalex.usercentre.service.ISysRoleService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import whale.userCentre.api.entity.SysRole;
-import whale.userCentre.api.vo.SysRoleVO;
+import com.whalex.userCentre.api.entity.SysRole;
+import com.whalex.userCentre.api.vo.SysRoleVO;
 
 import java.util.List;
 

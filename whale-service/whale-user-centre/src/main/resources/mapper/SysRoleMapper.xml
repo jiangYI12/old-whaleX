@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.whalex.usercentre.mapper.SysRoleMapper">
-  <resultMap id="BaseResultMap" type="whale.userCentre.api.entity.SysRole">
+  <resultMap id="BaseResultMap" type="com.whalex.userCentre.api.entity.SysRole">
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="tenant_code" jdbcType="VARCHAR" property="tenantCode" />
     <result column="role_name" jdbcType="VARCHAR" property="roleName" />
@@ -14,7 +14,7 @@
   </resultMap>
 
 
-  <resultMap id="BaseResultMapVO" type="whale.userCentre.api.vo.SysRoleVO">
+  <resultMap id="BaseResultMapVO" type="com.whalex.userCentre.api.vo.SysRoleVO">
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="tenant_code" jdbcType="VARCHAR" property="tenantCode" />
     <result column="role_name" jdbcType="VARCHAR" property="roleName" />
@@ -26,7 +26,7 @@
     <result column="status" jdbcType="INTEGER" property="status" />
     <collection property="sysMenus" javaType="ArrayList"
                 select="com.whalex.usercentre.mapper.SysMenuMapper.getMenuByRoleId"
-                ofType="whale.userCentre.api.entity.SysMenu"
+                ofType="com.whalex.userCentre.api.entity.SysMenu"
                 resultMap="com.whalex.usercentre.mapper.SysMenuMapper.BaseResultMap">
     </collection>
   </resultMap>

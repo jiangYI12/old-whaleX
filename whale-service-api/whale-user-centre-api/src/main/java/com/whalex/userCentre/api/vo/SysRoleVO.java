@@ -1,8 +1,8 @@
-package whale.userCentre.api.vo;
+package com.whalex.userCentre.api.vo;
 
+import com.whalex.userCentre.api.entity.SysRole;
 import lombok.Data;
-import whale.userCentre.api.entity.SysMenu;
-import whale.userCentre.api.entity.SysRole;
+import com.whalex.userCentre.api.entity.SysMenu;
 
 import java.util.List;
 

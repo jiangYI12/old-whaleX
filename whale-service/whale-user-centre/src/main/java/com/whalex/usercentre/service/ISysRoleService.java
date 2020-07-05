@@ -1,9 +1,8 @@
 package com.whalex.usercentre.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import org.apache.ibatis.annotations.Param;
-import whale.userCentre.api.entity.SysRole;
-import whale.userCentre.api.vo.SysRoleVO;
+import com.whalex.userCentre.api.entity.SysRole;
+import com.whalex.userCentre.api.vo.SysRoleVO;
 
 import java.util.List;
 

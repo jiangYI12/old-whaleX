@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import whale.common.core.returnResult.R;
 import whale.common.security.entity.WhaleUsers;
-import whale.userCentre.api.fegin.ISysCustomerFegin;
+import com.whalex.userCentre.api.fegin.ISysCustomerFegin;
 
 /**
  * Description:

@@ -2,7 +2,7 @@ package com.whalex.usercentre.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import whale.common.security.entity.WhaleUsers;
-import whale.userCentre.api.entity.SysCustomer;
+import com.whalex.userCentre.api.entity.SysCustomer;
 
 /**
  * Description:

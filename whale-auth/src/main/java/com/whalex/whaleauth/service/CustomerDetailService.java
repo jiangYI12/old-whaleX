@@ -2,8 +2,8 @@ package com.whalex.whaleauth.service;
 
 import cn.hutool.core.util.ObjectUtil;
 import com.whalex.whaleauth.entity.WhaleXUserDetails;
-import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,17 +15,18 @@ import whale.common.core.constant.SysConstant;
 import whale.common.core.returnResult.R;
 import whale.common.mvc.customException.ServiceException;
 import whale.common.security.entity.WhaleUsers;
-import whale.userCentre.api.fegin.ISysCustomerFegin;
+import com.whalex.userCentre.api.fegin.ISysCustomerFegin;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Collection;
 
 @Service
-@AllArgsConstructor
 public class CustomerDetailService implements UserDetailsService {
 
+    @Autowired
     private ISysCustomerFegin iSysCustomerFegin;
 
+    @Autowired
     private HttpServletRequest request;
 
     @SneakyThrows

@@ -1,4 +1,4 @@
-package whale.userCentre.api.entity;
+package com.whalex.userCentre.api.entity;
 import lombok.Data;
 import whale.common.mybatisPlus.baseEntity.TenantEntity;
 

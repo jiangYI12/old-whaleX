@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import whale.common.core.returnResult.R;
 import whale.common.mvc.customException.ServiceException;
-import whale.common.mvc.returnResult.R;
 
 /**
  * Description: 全局异常拦截器

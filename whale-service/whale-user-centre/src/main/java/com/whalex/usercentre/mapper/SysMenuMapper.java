@@ -3,7 +3,7 @@ package com.whalex.usercentre.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
-import whale.userCentre.api.entity.SysMenu;
+import com.whalex.userCentre.api.entity.SysMenu;
 
 import java.util.List;
 

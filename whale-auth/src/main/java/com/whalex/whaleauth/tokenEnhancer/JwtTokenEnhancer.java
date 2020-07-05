@@ -14,14 +14,13 @@
  *  this software without specific prior written permission.
  *  Author: Chill 庄骞 (smallchill@163.com)
  */
-package com.whalex.whaleauth.entity;
+package com.whalex.whaleauth.tokenEnhancer;
 
 import org.springframework.security.oauth2.common.DefaultOAuth2AccessToken;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.security.oauth2.provider.token.TokenEnhancer;
 import whale.common.security.entity.WhaleUsers;
-import whale.userCentre.api.entity.SysCustomer;
 
 import java.util.LinkedHashMap;
 import java.util.Map;

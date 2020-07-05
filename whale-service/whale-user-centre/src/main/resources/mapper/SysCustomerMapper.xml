@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.whalex.usercentre.mapper.SysCustomerMapper">
-  <resultMap id="BaseResultMap" type="whale.userCentre.api.entity.SysCustomer">
+  <resultMap id="BaseResultMap" type="com.whalex.userCentre.api.entity.SysCustomer">
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="account" jdbcType="VARCHAR" property="account" />
     <result column="customer_name" jdbcType="VARCHAR" property="username" />
@@ -18,7 +18,7 @@
     update_time, `status`, is_delete,createUser,updateUser
   </sql>
 
-  <select id="selectUserByCondition" parameterType="whale.userCentre.api.vo.SysCustomerVO" resultType="whale.userCentre.api.vo.SysCustomerVO">
+  <select id="selectUserByCondition" parameterType="com.whalex.userCentre.api.vo.SysCustomerVO" resultType="com.whalex.userCentre.api.vo.SysCustomerVO">
     SELECT <include refid="Base_Column_List"/> FROM sys_customer
     <where>
       <if test="cusVO.account != null and cusVO.account != ''">

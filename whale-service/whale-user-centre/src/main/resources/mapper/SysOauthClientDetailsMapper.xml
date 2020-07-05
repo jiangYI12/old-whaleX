@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="generate.SysOauthClientDetailsMapper">
-  <resultMap id="BaseResultMap" type="whale.userCentre.api.entity.SysOauthClientDetails">
+  <resultMap id="BaseResultMap" type="com.whalex.userCentre.api.entity.SysOauthClientDetails">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="client_id" jdbcType="VARCHAR" property="clientId" />
     <result column="resource_ids" jdbcType="VARCHAR" property="resourceIds" />

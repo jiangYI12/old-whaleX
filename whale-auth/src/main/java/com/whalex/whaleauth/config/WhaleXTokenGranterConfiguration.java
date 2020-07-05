@@ -16,7 +16,8 @@
  */
 package com.whalex.whaleauth.config;
 
-import com.whalex.whaleauth.entity.JwtTokenEnhancer;
+import com.whalex.userCentre.api.fegin.ISysCustomerFegin;
+import com.whalex.whaleauth.tokenEnhancer.JwtTokenEnhancer;
 import com.whalex.whaleauth.granter.WhaleXTokenGranter;
 import com.whalex.whaleauth.service.CustomerDetailService;
 import com.whalex.whaleauth.service.WhaleXClientDetailService;
@@ -51,12 +52,12 @@ public class WhaleXTokenGranterConfiguration {
 
 	private TokenStore tokenStore;
 
-	private WhaleXClientDetailService whaleXClientDetailService;
+	private ISysCustomerFegin iSysCustomerFegin;
 
 	@Bean
 	public WhaleXTokenGranter bladeTokenGranter() {
 		return new WhaleXTokenGranter(dataSource,authenticationManager,customerDetailService,
-				tokenStore,jwtTokenEnhancer,jwtAccessTokenConverter,whaleXClientDetailService);
+				tokenStore,jwtTokenEnhancer,jwtAccessTokenConverter,iSysCustomerFegin);
 	}
 
 }

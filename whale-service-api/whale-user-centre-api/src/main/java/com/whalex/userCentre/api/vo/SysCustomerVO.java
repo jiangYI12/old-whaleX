@@ -1,7 +1,7 @@
-package whale.userCentre.api.vo;
+package com.whalex.userCentre.api.vo;
 
+import com.whalex.userCentre.api.entity.SysCustomer;
 import lombok.Data;
-import whale.userCentre.api.entity.SysCustomer;
 
 import java.util.List;
 

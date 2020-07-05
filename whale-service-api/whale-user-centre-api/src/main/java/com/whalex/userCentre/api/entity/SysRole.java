@@ -1,4 +1,4 @@
-package whale.userCentre.api.entity;
+package com.whalex.userCentre.api.entity;
 
 import java.io.Serializable;
 import java.util.Date;

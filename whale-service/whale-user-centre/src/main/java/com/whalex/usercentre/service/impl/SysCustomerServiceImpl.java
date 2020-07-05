@@ -11,10 +11,10 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import whale.common.mvc.customException.ServiceException;
 import whale.common.security.entity.WhaleUsers;
-import whale.userCentre.api.entity.SysCustomer;
-import whale.userCentre.api.entity.SysMenu;
-import whale.userCentre.api.vo.SysCustomerVO;
-import whale.userCentre.api.vo.SysRoleVO;
+import com.whalex.userCentre.api.entity.SysCustomer;
+import com.whalex.userCentre.api.entity.SysMenu;
+import com.whalex.userCentre.api.vo.SysCustomerVO;
+import com.whalex.userCentre.api.vo.SysRoleVO;
 
 import java.util.LinkedList;
 import java.util.List;

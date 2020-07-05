@@ -16,7 +16,7 @@
  */
 package com.whalex.whaleauth.config;
 
-import com.whalex.whaleauth.entity.JwtTokenEnhancer;
+import com.whalex.whaleauth.tokenEnhancer.JwtTokenEnhancer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.oauth2.provider.token.TokenStore;

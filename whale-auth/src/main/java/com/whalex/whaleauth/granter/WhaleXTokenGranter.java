@@ -16,7 +16,7 @@
  */
 package com.whalex.whaleauth.granter;
 
-import com.whalex.whaleauth.service.WhaleXClientDetailService;
+import com.whalex.userCentre.api.fegin.ISysCustomerFegin;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.core.userdetails.UserDetailsByNameServiceWrapper;
@@ -47,7 +47,7 @@ import java.util.List;
  */
 public class WhaleXTokenGranter implements TokenGranter {
 
-	private final DataSource dataSource;
+	private DataSource dataSource;
 
 	private AuthenticationManager authenticationManager;
 
@@ -61,17 +61,18 @@ public class WhaleXTokenGranter implements TokenGranter {
 
 	private CompositeTokenGranter delegate;
 
-	private ClientDetailsService clientDetailsService;
+	private ISysCustomerFegin iSysCustomerFegin;
 
+	private ClientDetailsService whaleXClientDetailService;
 
-	public WhaleXTokenGranter(DataSource dataSource, AuthenticationManager authenticationManager, UserDetailsService userDetailsService, TokenStore tokenStore, TokenEnhancer jwtTokenEnhancer, JwtAccessTokenConverter jwtAccessTokenConverter, ClientDetailsService clientDetailsService) {
+	public WhaleXTokenGranter(DataSource dataSource, AuthenticationManager authenticationManager, UserDetailsService userDetailsService, TokenStore tokenStore, TokenEnhancer jwtTokenEnhancer, JwtAccessTokenConverter jwtAccessTokenConverter, ISysCustomerFegin iSysCustomerFegin) {
 		this.dataSource = dataSource;
 		this.authenticationManager = authenticationManager;
 		this.userDetailsService = userDetailsService;
 		this.tokenStore = tokenStore;
 		this.jwtTokenEnhancer = jwtTokenEnhancer;
 		this.jwtAccessTokenConverter = jwtAccessTokenConverter;
-		this.clientDetailsService = clientDetailsService;
+		this.iSysCustomerFegin = iSysCustomerFegin;
 	}
 
 	@Override
@@ -86,7 +87,7 @@ public class WhaleXTokenGranter implements TokenGranter {
 	 * 自定义授权模式
 	 */
 	private List<TokenGranter> getDefaultTokenGranters() {
-		ClientDetailsService clientDetails = clientDetailsService;
+		ClientDetailsService clientDetails = whaleXClientDetailService;
 		AuthorizationServerTokenServices tokenServices = tokenServices();
 		AuthorizationCodeServices authorizationCodeServices = authorizationCodeServices();
 		OAuth2RequestFactory requestFactory = requestFactory();
@@ -112,7 +113,7 @@ public class WhaleXTokenGranter implements TokenGranter {
 	}
 
 	private OAuth2RequestFactory requestFactory() {
-		return new DefaultOAuth2RequestFactory(clientDetailsService);
+		return new DefaultOAuth2RequestFactory(whaleXClientDetailService);
 	}
 
 	private DefaultTokenServices tokenServices() {
@@ -125,7 +126,7 @@ public class WhaleXTokenGranter implements TokenGranter {
 		enhancerList.add(jwtAccessTokenConverter);
 		tokenEnhancerChain.setTokenEnhancers(enhancerList);
 		defaultTokenServices.setTokenEnhancer(tokenEnhancerChain);
-		defaultTokenServices.setClientDetailsService(clientDetailsService);
+		defaultTokenServices.setClientDetailsService(whaleXClientDetailService);
 		addUserDetailsService(defaultTokenServices, userDetailsService);
 		return defaultTokenServices;
 	}

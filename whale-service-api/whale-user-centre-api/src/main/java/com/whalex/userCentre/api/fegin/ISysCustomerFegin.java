@@ -1,4 +1,4 @@
-package whale.userCentre.api.fegin;
+package com.whalex.userCentre.api.fegin;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;

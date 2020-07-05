@@ -1,6 +1,6 @@
 package com.whalex.whaleauth.config;
 
-import com.whalex.whaleauth.entity.JwtTokenEnhancer;
+import com.whalex.whaleauth.tokenEnhancer.JwtTokenEnhancer;
 import com.whalex.whaleauth.granter.WhaleXTokenGranter;
 import com.whalex.whaleauth.service.CustomerDetailService;
 import com.whalex.whaleauth.service.WhaleXClientDetailService;
@@ -14,7 +14,6 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.A
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.ClientDetailsService;
-import org.springframework.security.oauth2.provider.CompositeTokenGranter;
 import org.springframework.security.oauth2.provider.client.JdbcClientDetailsService;
 import org.springframework.security.oauth2.provider.token.*;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;

@@ -21,6 +21,11 @@ import com.whalex.userCentre.api.fegin.ISysCustomerFegin;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Collection;
 
+/**
+ * @description: 用户密码登录校验
+ * @author: 🐋鲸鱼
+ * @date: 2020/7/6
+ */
 @Service
 @AllArgsConstructor
 public class CustomerDetailService implements UserDetailsService {

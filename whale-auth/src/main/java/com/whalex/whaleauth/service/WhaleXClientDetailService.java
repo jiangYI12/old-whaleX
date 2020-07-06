@@ -7,6 +7,11 @@ import org.springframework.security.oauth2.provider.client.JdbcClientDetailsServ
 
 import javax.sql.DataSource;
 
+/**
+ * @description: 客户端校验
+ * @author: 🐋鲸鱼
+ * @date: 2020/7/6
+ */
 public class WhaleXClientDetailService extends JdbcClientDetailsService {
 
     public WhaleXClientDetailService(DataSource dataSource) {

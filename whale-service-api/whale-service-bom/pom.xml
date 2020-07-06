@@ -25,6 +25,11 @@
             <artifactId>whale-user-centre-api</artifactId>
             <version>${whalex.version}</version>
         </dependency>
+         <dependency>
+             <groupId>com.whaleX</groupId>
+             <artifactId>whale-system-api</artifactId>
+             <version>${whalex.version}</version>
+         </dependency>
      </dependencies>
     </dependencyManagement>
 </project>

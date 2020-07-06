@@ -42,9 +42,7 @@ import java.util.List;
 
 /**
  * 自定义拓展TokenGranter
- *
- * @author Chill
- */
+ **/
 public class WhaleXTokenGranter implements TokenGranter {
 
 	private DataSource dataSource;

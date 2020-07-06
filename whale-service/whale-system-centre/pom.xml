@@ -76,6 +76,20 @@
             <groupId>com.whaleX</groupId>
             <artifactId>whale-common-redis</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.whaleX</groupId>
+            <artifactId>whale-common-gateway</artifactId>
+            <exclusions>
+                <exclusion>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-starter-data-redis-reactive</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.whaleX</groupId>
+            <artifactId>whale-system-api</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

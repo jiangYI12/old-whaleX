@@ -9,8 +9,8 @@ import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
+import whale.common.core.baseEntity.WhaleUsers;
 import whale.common.mvc.customException.ServiceException;
-import whale.common.security.entity.WhaleUsers;
 import com.whalex.userCentre.api.entity.SysCustomer;
 import com.whalex.userCentre.api.entity.SysMenu;
 import com.whalex.userCentre.api.vo.SysCustomerVO;
@@ -34,7 +34,7 @@ public class SysCustomerServiceImpl extends ServiceImpl<SysCustomerMapper, SysCu
 
     @Override
     @SneakyThrows
-    public WhaleUsers selectUserAndRoleByAccount(String account,String tenantCode) {
+    public WhaleUsers selectUserAndRoleByAccount(String account, String tenantCode) {
         SysCustomerVO sysCustomerVO = new SysCustomerVO();
         sysCustomerVO.setAccount(account);
         sysCustomerVO.setTenantCode(tenantCode);

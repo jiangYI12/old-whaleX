@@ -8,7 +8,6 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.security.access.AccessDeniedException;
-import sun.security.util.SecurityConstants;
 import whale.common.security.annotation.Inner;
 import whale.common.security.constant.TokenConstant;
 

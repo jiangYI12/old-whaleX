@@ -1,14 +1,9 @@
-package whale.common.security.entity;
+package whale.common.core.baseEntity;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.User;
 
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.List;
 
 /**

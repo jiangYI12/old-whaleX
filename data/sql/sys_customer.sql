@@ -1,17 +1,17 @@
-    /*
+/*
  Navicat Premium Data Transfer
 
- Source Server         : localhost
+ Source Server         : local
  Source Server Type    : MySQL
- Source Server Version : 50729
+ Source Server Version : 50726
  Source Host           : localhost:3306
- Source Schema         : whalex-customer
+ Source Schema         : sys_customer
 
  Target Server Type    : MySQL
- Target Server Version : 50729
+ Target Server Version : 50726
  File Encoding         : 65001
 
- Date: 30/06/2020 22:30:55
+ Date: 06/07/2020 16:26:14
 */
 
 SET NAMES utf8mb4;
@@ -38,12 +38,6 @@ CREATE TABLE `sys_customer`  (
   INDEX `select_password`(`tenant_code`, `phone`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '用户表' ROW_FORMAT = Dynamic;
 
-SET FOREIGN_KEY_CHECKS = 1;
-
-
-SET NAMES utf8mb4;
-SET FOREIGN_KEY_CHECKS = 0;
-
 -- ----------------------------
 -- Table structure for sys_customer_role
 -- ----------------------------
@@ -54,10 +48,24 @@ CREATE TABLE `sys_customer_role`  (
   `role_id` bigint(64) NULL DEFAULT NULL
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
-SET FOREIGN_KEY_CHECKS = 1;
-
-SET NAMES utf8mb4;
-SET FOREIGN_KEY_CHECKS = 0;
+-- ----------------------------
+-- Table structure for sys_menu
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_menu`;
+CREATE TABLE `sys_menu`  (
+  `id` bigint(64) NOT NULL,
+  `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '菜单名',
+  `parent_id` bigint(64) NULL DEFAULT -1 COMMENT '-1 顶级父类',
+  `permission_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '权限名',
+  `icon` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '标签',
+  `code` int(20) NULL DEFAULT NULL COMMENT '权限编号',
+  `tenant_code` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `create_time` datetime(0) NULL DEFAULT NULL,
+  `update_time` datetime(0) NULL DEFAULT NULL,
+  `is_delete` int(2) NULL DEFAULT NULL COMMENT '是否删除 0未删除 1删除',
+  `status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '0开启 1关闭',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '权限表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for sys_oauth_client_details
@@ -79,77 +87,7 @@ CREATE TABLE `sys_oauth_client_details`  (
   `tenant_code` int(11) NOT NULL DEFAULT 0 COMMENT '所属租户',
   `is_delete` int(2) NULL DEFAULT NULL COMMENT '0未删除 删除',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '终端信息表' ROW_FORMAT = Dynamic;
-
-SET FOREIGN_KEY_CHECKS = 1;
-
-SET NAMES utf8mb4;
-SET FOREIGN_KEY_CHECKS = 0;
-
--- ----------------------------
--- Table structure for sys_permission
--- ----------------------------
-DROP TABLE IF EXISTS `sys_permission`;
-CREATE TABLE `sys_permission`  (
-  `id` bigint(64) NOT NULL,
-  `permission_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '权限名',
-  `code` int(20) NULL DEFAULT NULL COMMENT '权限编号',
-  `tenant_code` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  `create_time` datetime(0) NULL DEFAULT NULL,
-  `update_time` datetime(0) NULL DEFAULT NULL,
-  `is_delete` int(2) NULL DEFAULT NULL COMMENT '是否删除 0未删除 1删除',
-  `status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '0开启 1关闭',
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '权限表' ROW_FORMAT = Dynamic;
-
-SET FOREIGN_KEY_CHECKS = 1;
-
-SET NAMES utf8mb4;
-SET FOREIGN_KEY_CHECKS = 0;
-
--- ----------------------------
--- Table structure for sys_re_per
--- ----------------------------
-DROP TABLE IF EXISTS `sys_re_per`;
-CREATE TABLE `sys_re_per`  (
-  `id` bigint(64) NOT NULL,
-  `resource_id` bigint(64) NULL DEFAULT NULL,
-  `permission_id` bigint(64) NULL DEFAULT NULL,
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
-
-SET FOREIGN_KEY_CHECKS = 1;
-
-
-SET NAMES utf8mb4;
-SET FOREIGN_KEY_CHECKS = 0;
-
--- ----------------------------
--- Table structure for sys_resources
--- ----------------------------
-DROP TABLE IF EXISTS `sys_resources`;
-CREATE TABLE `sys_resources`  (
-  `id` bigint(64) NOT NULL,
-  `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '资源名',
-  `path` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '资源路径',
-  `code` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '资源编号',
-  `icon` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '标志路径',
-  `parent_id` bigint(64) NULL DEFAULT NULL COMMENT '父菜单id',
-  `is_parent` int(2) NULL DEFAULT NULL COMMENT '0不是父菜单 1是父菜单',
-  `sort` int(20) NULL DEFAULT NULL COMMENT '排序',
-  `is_delete` int(2) NULL DEFAULT NULL,
-  `create_time` datetime(0) NULL DEFAULT NULL,
-  `update_time` datetime(0) NULL DEFAULT NULL,
-  `status` int(2) NULL DEFAULT NULL,
-  `tenant_code` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '资源表' ROW_FORMAT = Dynamic;
-
-SET FOREIGN_KEY_CHECKS = 1;
-
-
-SET NAMES utf8mb4;
-SET FOREIGN_KEY_CHECKS = 0;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '终端信息表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for sys_role
@@ -168,11 +106,16 @@ CREATE TABLE `sys_role`  (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '角色表' ROW_FORMAT = Dynamic;
 
-SET FOREIGN_KEY_CHECKS = 1;
-
-
-SET NAMES utf8mb4;
-SET FOREIGN_KEY_CHECKS = 0;
+-- ----------------------------
+-- Table structure for sys_role_menu
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_role_menu`;
+CREATE TABLE `sys_role_menu`  (
+  `id` bigint(64) NOT NULL,
+  `role_id` bigint(64) NULL DEFAULT NULL,
+  `menu_id` bigint(64) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for sys_tenant

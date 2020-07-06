@@ -6,8 +6,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import whale.common.core.baseEntity.WhaleUsers;
 import whale.common.core.returnResult.R;
-import whale.common.security.entity.WhaleUsers;
 import com.whalex.userCentre.api.fegin.ISysCustomerFegin;
 
 /**

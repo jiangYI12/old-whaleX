@@ -3,10 +3,10 @@ package com.whalex.userCentre.api.fegin;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import whale.common.core.baseEntity.WhaleUsers;
 import whale.common.core.constant.SysServiceConstant;
 import whale.common.core.returnResult.R;
 import whale.common.fegin.constant.FeginClientURL;
-import whale.common.security.entity.WhaleUsers;
 
 /**
  * Description:

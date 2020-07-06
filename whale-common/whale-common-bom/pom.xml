@@ -41,6 +41,11 @@
             </dependency>
             <dependency>
                 <groupId>com.whaleX</groupId>
+                <artifactId>whale-common-redis</artifactId>
+                <version>${whalex.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.whaleX</groupId>
                 <artifactId>whale-common-fegin</artifactId>
                 <version>${whalex.version}</version>
             </dependency>

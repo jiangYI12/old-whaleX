@@ -16,5 +16,6 @@
         <module>whale-message-centre</module>
         <module>whale-user-centre</module>
         <module>whale-pay-order</module>
+        <module>whale-system-centre</module>
     </modules>
 </project>

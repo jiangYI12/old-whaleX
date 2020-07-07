@@ -19,9 +19,9 @@ import org.springframework.data.redis.listener.ChannelTopic;
 import org.springframework.data.redis.listener.RedisMessageListenerContainer;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.scheduling.annotation.Async;
+import whale.common.gateway.redisKeys.GatewaysKeys;
 import whale.common.gateway.support.DynamicRouteInitEvent;
 import whale.common.gateway.vo.RouteDefinitionVo;
-import whale.common.redis.redisKeys.GatewaysKeys;
 
 import java.net.URI;
 

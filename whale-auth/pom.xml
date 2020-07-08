@@ -28,6 +28,10 @@
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.whaleX</groupId>
+            <artifactId>whale-common-redis</artifactId>
+        </dependency>
         <!--JDBC相关-->
         <dependency>
             <groupId>org.springframework.boot</groupId>

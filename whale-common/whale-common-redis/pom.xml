@@ -11,9 +11,8 @@
 
     <artifactId>whale-common-redis</artifactId>
 
-
     <dependencies>
-        <!--缓存-->
+        <!--缓存依赖-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>

@@ -40,6 +40,7 @@ public class RouteInitConfig {
 
     private final ISysRouteConfService iSysRouteConfService;
 
+    //容器初始化时会调用
     @Async
     @Order
     @EventListener({WebServerInitializedEvent.class, DynamicRouteInitEvent.class})
@@ -52,7 +53,7 @@ public class RouteInitConfig {
             vo.setRouteName(sysRouteConf.getRouteName());
             vo.setId(sysRouteConf.getRouteId());
             vo.setUri(URI.create(sysRouteConf.getUri()));
-            vo.setOrder(sysRouteConf.getOrder());
+            vo.setOrder(sysRouteConf.getOrderNum());
             //加载过滤器
             JSONArray filterObj = JSONUtil.parseArray(sysRouteConf.getFilters());
             vo.setFilters(filterObj.toList(FilterDefinition.class));

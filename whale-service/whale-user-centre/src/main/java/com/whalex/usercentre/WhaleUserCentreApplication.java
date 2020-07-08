@@ -4,6 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.cloud.client.SpringCloudApplication;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
+import whale.common.core.annotation.ScanCommon;
 import whale.common.fegin.annotation.EnableWhalexFeign;
 
 @EnableWhalexFeign
@@ -12,6 +13,7 @@ import whale.common.fegin.annotation.EnableWhalexFeign;
 //激活方法上的Preauthorize 注解
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 @SpringCloudApplication
+@ScanCommon
 public class WhaleUserCentreApplication {
 
     public static void main(String[] args) {

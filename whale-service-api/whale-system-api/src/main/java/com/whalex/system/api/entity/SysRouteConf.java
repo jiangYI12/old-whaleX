@@ -37,7 +37,7 @@ public class SysRouteConf implements Serializable {
     /**
      * 排序
      */
-    private Integer order;
+    private Integer orderNum;
 
     /**
      * 创建时间

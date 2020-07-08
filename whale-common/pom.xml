@@ -27,6 +27,7 @@
         <module>whale-common-mvc</module>
         <module>whale-common-redis</module>
         <module>whale-common-gateway</module>
+        <module>whale-common-redis</module>
     </modules>
 
 

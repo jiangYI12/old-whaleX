@@ -2,7 +2,7 @@ package com.whalex.system.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.whalex.system.api.entity.SysRouteConf;
-import com.whalex.system.mpper.SysRouteConfMapper;
+import com.whalex.system.mapper.SysRouteConfMapper;
 import com.whalex.system.service.ISysRouteConfService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

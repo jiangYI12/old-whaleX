@@ -36,7 +36,9 @@ import whale.common.gateway.vo.RouteDefinitionVo;
 import java.util.List;
 
 /**
- * redis 保存路由信息，优先级比配置文件高
+ * @description: 实现routeDefinitionWriter完成动态路由功能
+ * @author: 🐋鲸鱼
+ * @date: 2020/7/8
  */
 @Slf4j
 @Component

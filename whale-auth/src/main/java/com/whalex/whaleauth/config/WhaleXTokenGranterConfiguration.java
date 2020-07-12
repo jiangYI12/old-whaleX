@@ -19,13 +19,13 @@ package com.whalex.whaleauth.config;
 import com.whalex.userCentre.api.fegin.ISysCustomerFegin;
 import com.whalex.whaleauth.tokenEnhancer.JwtTokenEnhancer;
 import com.whalex.whaleauth.granter.WhaleXTokenGranter;
-import com.whalex.whaleauth.service.CustomerDetailService;
-import com.whalex.whaleauth.service.WhaleXClientDetailService;
+import com.whalex.whaleauth.service.WhaleXCustomerDetailService;
 import lombok.AllArgsConstructor;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.oauth2.provider.ClientDetailsService;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 
@@ -42,7 +42,7 @@ public class WhaleXTokenGranterConfiguration {
 
 	private DataSource dataSource;
 
-	private CustomerDetailService customerDetailService;
+	private WhaleXCustomerDetailService whaleXCustomerDetailService;
 
 	private AuthenticationManager authenticationManager;
 
@@ -54,10 +54,11 @@ public class WhaleXTokenGranterConfiguration {
 
 	private ISysCustomerFegin iSysCustomerFegin;
 
+	private ClientDetailsService whaleXClientDetailService;
 	@Bean
 	public WhaleXTokenGranter bladeTokenGranter() {
-		return new WhaleXTokenGranter(dataSource,authenticationManager,customerDetailService,
-				tokenStore,jwtTokenEnhancer,jwtAccessTokenConverter,iSysCustomerFegin);
+		return new WhaleXTokenGranter(dataSource,authenticationManager, whaleXCustomerDetailService,
+				tokenStore,jwtTokenEnhancer,jwtAccessTokenConverter,iSysCustomerFegin,whaleXClientDetailService);
 	}
 
 }

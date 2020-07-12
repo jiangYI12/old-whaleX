@@ -13,5 +13,11 @@ spring:
         file-extension: yml
         shared-configs:
           - application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+    gateway:
+      routes:
+        - id: whale-auth
+          uri: lb://whale-auth
+          predicates:
+            - Path=//whale-auth
   profiles:
     active: @profiles.active@

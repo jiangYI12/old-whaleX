@@ -35,8 +35,8 @@ import org.springframework.data.redis.connection.lettuce.LettuceClientConfigurat
 import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
 import org.springframework.data.redis.listener.ChannelTopic;
 import org.springframework.data.redis.listener.RedisMessageListenerContainer;
-import whale.common.gateway.redisKeys.GatewaysKeys;
-import whale.common.gateway.support.RouteCacheHolder;
+import com.whalex.common.gateway.redisKeys.GatewaysKeys;
+import com.whalex.common.gateway.support.RouteCacheHolder;
 
 import java.time.Duration;
 
@@ -45,7 +45,7 @@ import java.time.Duration;
  */
 @Slf4j
 @Configuration
-@ComponentScan("whale.common.gateway")
+@ComponentScan("com.whalex.common.gateway")
 @ConditionalOnWebApplication(type = ConditionalOnWebApplication.Type.REACTIVE)
 public class DynamicRouteAutoConfiguration {
 

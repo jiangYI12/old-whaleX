@@ -1,7 +1,10 @@
 package com.whalex.usercentre.service.impl;
 
+import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.ObjectUtil;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.whalex.common.core.baseEntity.WhaleUsers;
+import com.whalex.common.mvc.customException.ServiceException;
 import com.whalex.usercentre.mapper.SysCustomerMapper;
 import com.whalex.usercentre.service.ISysCustomerService;
 import com.whalex.usercentre.service.ISysRoleService;
@@ -9,8 +12,6 @@ import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
-import whale.common.core.baseEntity.WhaleUsers;
-import whale.common.mvc.customException.ServiceException;
 import com.whalex.userCentre.api.entity.SysCustomer;
 import com.whalex.userCentre.api.entity.SysMenu;
 import com.whalex.userCentre.api.vo.SysCustomerVO;
@@ -47,13 +48,15 @@ public class SysCustomerServiceImpl extends ServiceImpl<SysCustomerMapper, SysCu
         //查找用户角色
         List<SysRoleVO> sysRoleVOs = iSysRoleService.getCustomerRoleById(sysCustomerVO.getId());
         sysCustomerVO.setRoles(sysRoleVOs);
-            BeanUtils.copyProperties(sysCustomerVO,whaleUsers);
 
             List<String> roles = new LinkedList<>();
             List<String> permissions = new LinkedList<>();
         //获取权限
             for (SysRoleVO s:sysRoleVOs) {
-                roles.add(s.getRoleName());
+                roles.add(s.getRoleCode());
+                if(CollUtil.isEmpty(s.getSysMenus())){
+                    break;
+                }
                 for (SysMenu sysMenu:s.getSysMenus()) {
                     permissions.add(sysMenu.getPermissionName());
                 }

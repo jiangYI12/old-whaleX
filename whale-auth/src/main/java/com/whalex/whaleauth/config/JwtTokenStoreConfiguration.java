@@ -16,13 +16,13 @@
  */
 package com.whalex.whaleauth.config;
 
+import com.whalex.common.core.constant.SecurityConstants;
 import com.whalex.whaleauth.tokenEnhancer.JwtTokenEnhancer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
-import whale.common.security.constant.TokenConstant;
 
 /**
  * JwtTokenStore
@@ -44,7 +44,7 @@ public class JwtTokenStoreConfiguration {
 	@Bean
 	public JwtAccessTokenConverter jwtAccessTokenConverter() {
 		JwtAccessTokenConverter accessTokenConverter = new JwtAccessTokenConverter();
-		accessTokenConverter.setSigningKey(TokenConstant.SIGN_KEY);
+		accessTokenConverter.setSigningKey(SecurityConstants.SIGN_KEY);
 		return accessTokenConverter;
 	}
 

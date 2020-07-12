@@ -1,9 +1,7 @@
 package com.whalex.userCentre.api.entity;
 
-import java.io.Serializable;
-import java.util.Date;
 import lombok.Data;
-import whale.common.mybatisPlus.baseEntity.TenantEntity;
+import com.whalex.common.mybatisPlus.TenantEntity;
 
 /**
  * sys_menu

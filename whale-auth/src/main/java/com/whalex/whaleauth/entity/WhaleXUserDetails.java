@@ -18,17 +18,6 @@ public class WhaleXUserDetails extends User {
     private String account;
 
     /**
-     * 用户名
-     */
-    private String customerName;
-
-    /**
-     * 密码
-     */
-    private String password;
-
-
-    /**
      * 手机号
      */
     private String phone;
@@ -51,6 +40,7 @@ public class WhaleXUserDetails extends User {
         this.id = id;
         this.avatar = avatar;
         this.phone = phone;
+        this.account = account;
         this.username = username;
         this.roles = roles;
         this.permissions = permissions;

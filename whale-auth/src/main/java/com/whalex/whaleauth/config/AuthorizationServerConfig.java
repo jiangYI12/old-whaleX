@@ -2,7 +2,7 @@ package com.whalex.whaleauth.config;
 
 import com.whalex.whaleauth.tokenEnhancer.JwtTokenEnhancer;
 import com.whalex.whaleauth.granter.WhaleXTokenGranter;
-import com.whalex.whaleauth.service.CustomerDetailService;
+import com.whalex.whaleauth.service.WhaleXCustomerDetailService;
 import com.whalex.whaleauth.service.WhaleXClientDetailService;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -13,6 +13,7 @@ import org.springframework.security.oauth2.config.annotation.configurers.ClientD
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
+import org.springframework.security.oauth2.provider.ClientDetails;
 import org.springframework.security.oauth2.provider.ClientDetailsService;
 import org.springframework.security.oauth2.provider.client.JdbcClientDetailsService;
 import org.springframework.security.oauth2.provider.token.*;
@@ -28,7 +29,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
     private DataSource dataSource;
 
-    private CustomerDetailService customerDetailService;
+    private WhaleXCustomerDetailService whaleXCustomerDetailService;
 
     private AuthenticationManager authenticationManager;
 
@@ -39,6 +40,9 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     private TokenStore tokenStore;
 
     private WhaleXTokenGranter whaleXTokenGranter;
+
+    private ClientDetailsService whaleXClientDetailService;
+
     @Override
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
         //不配置這段無法使用check_token
@@ -50,19 +54,11 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     }
 
 
-    //客户端配置 用来查询客户端
-    @Bean
-    public ClientDetailsService clientDetails() {
-        return new JdbcClientDetailsService(dataSource);
-    }
 
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         //查找该资源服务
-        WhaleXClientDetailService clientDetailService = new WhaleXClientDetailService(dataSource);
-        clientDetailService.setSelectClientDetailsSql(" where client_id = ?");
-        clientDetailService.setFindClientDetailsSql(" order by client_id");
-        clients.withClientDetails(clientDetailService);
+        clients.withClientDetails(whaleXClientDetailService);
     }
 
     @Override
@@ -70,7 +66,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
         endpoints.allowedTokenEndpointRequestMethods(HttpMethod.GET, HttpMethod.POST)
                 .tokenStore(tokenStore)
                 // 必须指定，否则refresh_token会报错
-                .userDetailsService(customerDetailService)
+                .userDetailsService(whaleXCustomerDetailService)
                 .authenticationManager(authenticationManager)
                 .accessTokenConverter(jwtAccessTokenConverter)
                 //该字段设置设置refresh token是否重复使用,true:reuse;false:no reuse.

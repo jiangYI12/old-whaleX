@@ -3,6 +3,7 @@ package com.whalex.whaleauth.config;
 import lombok.SneakyThrows;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -24,7 +25,9 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers(
                         "/oauth/**",
-                        "/actuator/**").permitAll()
+                        "/actuator/**",
+                        "/druid/**",
+                        "/v2/api-docs/**").permitAll()
                 .anyRequest().authenticated()
                 .and().csrf().disable().httpBasic();
     }
@@ -48,6 +51,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 
 
     @Bean
+    @Primary
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }

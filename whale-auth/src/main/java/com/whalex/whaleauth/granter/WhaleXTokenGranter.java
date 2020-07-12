@@ -61,9 +61,9 @@ public class WhaleXTokenGranter implements TokenGranter {
 
 	private ISysCustomerFegin iSysCustomerFegin;
 
-	private ClientDetailsService whaleXClientDetailService;
+	private ClientDetailsService clientDetailsService;
 
-	public WhaleXTokenGranter(DataSource dataSource, AuthenticationManager authenticationManager, UserDetailsService userDetailsService, TokenStore tokenStore, TokenEnhancer jwtTokenEnhancer, JwtAccessTokenConverter jwtAccessTokenConverter, ISysCustomerFegin iSysCustomerFegin) {
+	public WhaleXTokenGranter(DataSource dataSource, AuthenticationManager authenticationManager, UserDetailsService userDetailsService, TokenStore tokenStore, TokenEnhancer jwtTokenEnhancer, JwtAccessTokenConverter jwtAccessTokenConverter, ISysCustomerFegin iSysCustomerFegin,ClientDetailsService clientDetailsService) {
 		this.dataSource = dataSource;
 		this.authenticationManager = authenticationManager;
 		this.userDetailsService = userDetailsService;
@@ -71,6 +71,7 @@ public class WhaleXTokenGranter implements TokenGranter {
 		this.jwtTokenEnhancer = jwtTokenEnhancer;
 		this.jwtAccessTokenConverter = jwtAccessTokenConverter;
 		this.iSysCustomerFegin = iSysCustomerFegin;
+		this.clientDetailsService = clientDetailsService;
 	}
 
 	@Override
@@ -85,7 +86,7 @@ public class WhaleXTokenGranter implements TokenGranter {
 	 * 自定义授权模式
 	 */
 	private List<TokenGranter> getDefaultTokenGranters() {
-		ClientDetailsService clientDetails = whaleXClientDetailService;
+		ClientDetailsService clientDetails = clientDetailsService;
 		AuthorizationServerTokenServices tokenServices = tokenServices();
 		AuthorizationCodeServices authorizationCodeServices = authorizationCodeServices();
 		OAuth2RequestFactory requestFactory = requestFactory();
@@ -111,7 +112,7 @@ public class WhaleXTokenGranter implements TokenGranter {
 	}
 
 	private OAuth2RequestFactory requestFactory() {
-		return new DefaultOAuth2RequestFactory(whaleXClientDetailService);
+		return new DefaultOAuth2RequestFactory(clientDetailsService);
 	}
 
 	private DefaultTokenServices tokenServices() {
@@ -124,7 +125,7 @@ public class WhaleXTokenGranter implements TokenGranter {
 		enhancerList.add(jwtAccessTokenConverter);
 		tokenEnhancerChain.setTokenEnhancers(enhancerList);
 		defaultTokenServices.setTokenEnhancer(tokenEnhancerChain);
-		defaultTokenServices.setClientDetailsService(whaleXClientDetailService);
+		defaultTokenServices.setClientDetailsService(clientDetailsService);
 		addUserDetailsService(defaultTokenServices, userDetailsService);
 		return defaultTokenServices;
 	}

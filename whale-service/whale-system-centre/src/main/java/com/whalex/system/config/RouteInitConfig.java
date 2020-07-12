@@ -3,6 +3,9 @@ package com.whalex.system.config;
 
 import cn.hutool.json.JSONArray;
 import cn.hutool.json.JSONUtil;
+import com.whalex.common.gateway.redisKeys.GatewaysKeys;
+import com.whalex.common.gateway.support.DynamicRouteInitEvent;
+import com.whalex.common.gateway.vo.RouteDefinitionVo;
 import com.whalex.system.service.ISysRouteConfService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -19,9 +22,7 @@ import org.springframework.data.redis.listener.ChannelTopic;
 import org.springframework.data.redis.listener.RedisMessageListenerContainer;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.scheduling.annotation.Async;
-import whale.common.gateway.redisKeys.GatewaysKeys;
-import whale.common.gateway.support.DynamicRouteInitEvent;
-import whale.common.gateway.vo.RouteDefinitionVo;
+
 
 import java.net.URI;
 

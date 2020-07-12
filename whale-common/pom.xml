@@ -25,7 +25,6 @@
         <module>whale-common-mybatisPlus</module>
         <module>whale-common-tool</module>
         <module>whale-common-mvc</module>
-        <module>whale-common-redis</module>
         <module>whale-common-gateway</module>
         <module>whale-common-redis</module>
     </modules>

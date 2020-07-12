@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.whalex.usercentre.mapper.SysRoleMapper">
-  <resultMap id="BaseResultMap" type="com.whalex.userCentre.api.entity.SysRole">
-    <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="tenant_code" jdbcType="VARCHAR" property="tenantCode" />
-    <result column="role_name" jdbcType="VARCHAR" property="roleName" />
-    <result column="role_code" jdbcType="VARCHAR" property="roleCode" />
-    <result column="role_desc" jdbcType="VARCHAR" property="roleDesc" />
-    <result column="is_delete" jdbcType="INTEGER" property="isDelete" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
-    <result column="status" jdbcType="INTEGER" property="status" />
-  </resultMap>
+<!--  <resultMap id="BaseResultMap" type="com.whalex.userCentre.api.entity.SysRole">-->
+<!--    <id column="id" jdbcType="BIGINT" property="id" />-->
+<!--    <result column="tenant_code" jdbcType="VARCHAR" property="tenantCode" />-->
+<!--    <result column="role_name" jdbcType="VARCHAR" property="roleName" />-->
+<!--    <result column="role_code" jdbcType="VARCHAR" property="roleCode" />-->
+<!--    <result column="role_desc" jdbcType="VARCHAR" property="roleDesc" />-->
+<!--    <result column="is_delete" jdbcType="INTEGER" property="isDelete" />-->
+<!--    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />-->
+<!--    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />-->
+<!--    <result column="status" jdbcType="INTEGER" property="status" />-->
+<!--  </resultMap>-->
 
 
   <resultMap id="BaseResultMapVO" type="com.whalex.userCentre.api.vo.SysRoleVO">
@@ -24,10 +24,9 @@
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="status" jdbcType="INTEGER" property="status" />
-    <collection property="sysMenus" javaType="ArrayList"
+    <collection property="sysMenus" column="id"
                 select="com.whalex.usercentre.mapper.SysMenuMapper.getMenuByRoleId"
-                ofType="com.whalex.userCentre.api.entity.SysMenu"
-                resultMap="com.whalex.usercentre.mapper.SysMenuMapper.BaseResultMap">
+                ofType="com.whalex.userCentre.api.entity.SysMenu">
     </collection>
   </resultMap>
 
@@ -37,9 +36,9 @@
   </sql>
 
 
-  <select id="getCustomerRoleById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    SELECT cRole.* FROM sys_customer_role as cRole
-    LEFT JOIN sys_role cRole on role.id = cRole.role_id
+  <select id="getCustomerRoleById" parameterType="java.lang.Long" resultMap="BaseResultMapVO">
+    SELECT role.* FROM sys_customer_role as cRole
+    LEFT JOIN sys_role role on role.id = cRole.role_id
     WHERE cRole.customer_id = #{customerId};
   </select>
 

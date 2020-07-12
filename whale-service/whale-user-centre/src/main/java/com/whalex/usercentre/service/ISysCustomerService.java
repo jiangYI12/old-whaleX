@@ -1,7 +1,7 @@
 package com.whalex.usercentre.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import whale.common.core.baseEntity.WhaleUsers;
+import com.whalex.common.core.baseEntity.WhaleUsers;
 import com.whalex.userCentre.api.entity.SysCustomer;
 
 /**

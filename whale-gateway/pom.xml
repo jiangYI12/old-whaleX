@@ -47,10 +47,6 @@
             <artifactId>knife4j-spring-ui</artifactId>
             <version>${knife4j.version}</version>
         </dependency>
-        <dependency>
-            <groupId>com.whaleX</groupId>
-            <artifactId>whale-common-redis</artifactId>
-        </dependency>
     </dependencies>
 
     <build>

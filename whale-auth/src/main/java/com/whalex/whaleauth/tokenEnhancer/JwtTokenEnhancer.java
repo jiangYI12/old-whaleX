@@ -16,11 +16,12 @@
  */
 package com.whalex.whaleauth.tokenEnhancer;
 
+import com.whalex.common.core.baseEntity.WhaleUsers;
+import com.whalex.whaleauth.entity.WhaleXUserDetails;
 import org.springframework.security.oauth2.common.DefaultOAuth2AccessToken;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.security.oauth2.provider.token.TokenEnhancer;
-import whale.common.core.baseEntity.WhaleUsers;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -33,13 +34,13 @@ import java.util.Map;
 public class JwtTokenEnhancer implements TokenEnhancer {
 	@Override
 	public OAuth2AccessToken enhance(OAuth2AccessToken accessToken, OAuth2Authentication authentication) {
-		WhaleUsers user = (WhaleUsers) authentication.getPrincipal();
+		WhaleXUserDetails user = (WhaleXUserDetails) authentication.getPrincipal();
 		Map<String, Object> map = new LinkedHashMap<>();
 		map.put("id",user.getId());
 		map.put("account",user.getAccount());
 		map.put("phone",user.getPhone());
 		map.put("avatar",user.getAvatar());
-		map.put("customerName",user.getUsername());
+		map.put("username",user.getUsername());
 		((DefaultOAuth2AccessToken) accessToken).setAdditionalInformation(map);
 		return 	accessToken;
 	}

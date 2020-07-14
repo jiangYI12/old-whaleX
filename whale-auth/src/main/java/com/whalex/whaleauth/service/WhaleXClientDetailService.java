@@ -3,9 +3,7 @@ package com.whalex.whaleauth.service;
 import com.whalex.common.core.constant.SecurityConstants;
 import com.whalex.common.core.constant.SysConstant;
 import com.whalex.common.tool.webUtil.WebUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.common.exceptions.InvalidClientException;
 import org.springframework.security.oauth2.provider.ClientDetails;
 import org.springframework.security.oauth2.provider.client.JdbcClientDetailsService;
@@ -21,8 +19,6 @@ import javax.sql.DataSource;
 @Service
 public class WhaleXClientDetailService extends JdbcClientDetailsService {
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
 
     public WhaleXClientDetailService(DataSource dataSource) {
         super(dataSource);

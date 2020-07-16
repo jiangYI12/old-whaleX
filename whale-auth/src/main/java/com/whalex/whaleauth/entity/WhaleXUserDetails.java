@@ -31,11 +31,10 @@ public class WhaleXUserDetails extends User {
 
     private List<String> roles;
 
-    private List<String> permissions;
-
+    private List<Long> roleIds;
 
     public WhaleXUserDetails(String account,String avatar,Long id,String phone,String username
-            ,String password,List<String> roles,List<String> permissions, Collection<? extends GrantedAuthority> authorities) {
+            ,String password,List<String> roles,List<Long> roleIds, Collection<? extends GrantedAuthority> authorities) {
         super(account, password, authorities);
         this.id = id;
         this.avatar = avatar;
@@ -43,7 +42,7 @@ public class WhaleXUserDetails extends User {
         this.account = account;
         this.username = username;
         this.roles = roles;
-        this.permissions = permissions;
+        this.roleIds = roleIds;
     }
 
 

@@ -1,5 +1,6 @@
 package com.whalex.common.core.returnResult;
 
+import cn.hutool.core.util.ObjectUtil;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
@@ -34,6 +35,14 @@ public class R<T> {
 
     public static <T> R<T> ok(){
         return restResult(ResultStatus.SUCCESS,"请求成功",null);
+    }
+
+    public static <T> R<T> data(T o){
+        if(ObjectUtil.isEmpty(o)) {
+            return restResult(ResultStatus.SUCCESS,"无承载数据",o);
+        }else{
+            return restResult(ResultStatus.SUCCESS,"请求成功",o);
+        }
     }
 
     public static <T> R<T> success(T data){

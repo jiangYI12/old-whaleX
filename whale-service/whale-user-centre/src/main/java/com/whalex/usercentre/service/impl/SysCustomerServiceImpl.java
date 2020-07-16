@@ -50,20 +50,17 @@ public class SysCustomerServiceImpl extends ServiceImpl<SysCustomerMapper, SysCu
         sysCustomerVO.setRoles(sysRoleVOs);
 
             List<String> roles = new LinkedList<>();
-            List<String> permissions = new LinkedList<>();
-        //获取权限
+            List<Long> roleIds = new LinkedList<>();
+            //获取权限
             for (SysRoleVO s:sysRoleVOs) {
                 roles.add(s.getRoleCode());
+                roleIds.add(s.getId());
                 if(CollUtil.isEmpty(s.getSysMenus())){
                     break;
                 }
-                for (SysMenu sysMenu:s.getSysMenus()) {
-                    permissions.add(sysMenu.getPermissionName());
-                }
             }
             whaleUsers.setRoles(roles);
-            whaleUsers.setPermissions(permissions);
-
+            whaleUsers.setRoleIds(roleIds);
         return whaleUsers;
     }
 }

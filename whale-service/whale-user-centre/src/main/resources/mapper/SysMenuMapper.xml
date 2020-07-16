@@ -5,6 +5,7 @@
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="parent_id" jdbcType="BIGINT" property="parentId" />
+    <result column="path" jdbcType="VARCHAR" property="path" />
     <result column="permission_name" jdbcType="VARCHAR" property="permissionName" />
     <result column="icon" jdbcType="VARCHAR" property="icon" />
     <result column="code" jdbcType="INTEGER" property="code" />
@@ -17,7 +18,7 @@
   
   <sql id="Base_Column_List">
     id, `name`, parent_id, permission_name, icon, code, tenant_code, create_time, update_time, 
-    is_delete, `status`
+    is_delete, `status`,path
   </sql>
 
   <select id="getMenuByRoleIds" resultType="com.whalex.userCentre.api.entity.SysMenu">

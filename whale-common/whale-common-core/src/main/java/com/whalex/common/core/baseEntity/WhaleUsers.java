@@ -42,7 +42,7 @@ public class WhaleUsers implements Serializable {
 
     private List<String> roles;
 
-    private List<String> permissions;
+    private List<Long> roleIds;
 
     private static final long serialVersionUID = 1L;
 

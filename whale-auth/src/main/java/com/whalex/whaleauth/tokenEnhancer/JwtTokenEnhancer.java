@@ -41,6 +41,8 @@ public class JwtTokenEnhancer implements TokenEnhancer {
 		map.put("phone",user.getPhone());
 		map.put("avatar",user.getAvatar());
 		map.put("username",user.getUsername());
+		map.put("roles",user.getRoles());
+		map.put("rolesIds",user.getRoleIds());
 		((DefaultOAuth2AccessToken) accessToken).setAdditionalInformation(map);
 		return 	accessToken;
 	}

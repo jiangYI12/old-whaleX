@@ -13,7 +13,7 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 @SpringCloudApplication
 @EnableWhalexFeign
-public class WhaleSystemApplication {
+public class  WhaleSystemApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(WhaleSystemApplication.class, args);

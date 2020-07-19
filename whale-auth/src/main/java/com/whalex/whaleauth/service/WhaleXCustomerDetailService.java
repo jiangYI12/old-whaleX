@@ -54,6 +54,6 @@ public class WhaleXCustomerDetailService implements UserDetailsService {
                 );
 
         return new WhaleXUserDetails(whaleUsers.getAccount(),whaleUsers.getAvatar(),whaleUsers.getId(),
-               whaleUsers.getPhone(),whaleUsers.getUsername(),whaleUsers.getPassword(),whaleUsers.getRoles(),whaleUsers.getRoleIds(),authorities);
+               whaleUsers.getPhone(),whaleUsers.getUsername(),whaleUsers.getTenantCode(),whaleUsers.getPassword(),whaleUsers.getRoles(),whaleUsers.getRoleIds(),authorities);
     }
 }

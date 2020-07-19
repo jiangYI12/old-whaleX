@@ -17,6 +17,7 @@ public class WhaleXUserDetails extends User {
 
     private String account;
 
+    private String tenantCode;
     /**
      * 手机号
      */
@@ -33,10 +34,11 @@ public class WhaleXUserDetails extends User {
 
     private List<Long> roleIds;
 
-    public WhaleXUserDetails(String account,String avatar,Long id,String phone,String username
+    public WhaleXUserDetails(String account,String avatar,Long id,String phone,String username,String tenantCode
             ,String password,List<String> roles,List<Long> roleIds, Collection<? extends GrantedAuthority> authorities) {
         super(account, password, authorities);
         this.id = id;
+        this.tenantCode = tenantCode;
         this.avatar = avatar;
         this.phone = phone;
         this.account = account;

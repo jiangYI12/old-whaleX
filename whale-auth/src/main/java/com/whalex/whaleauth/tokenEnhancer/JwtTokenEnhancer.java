@@ -38,6 +38,7 @@ public class JwtTokenEnhancer implements TokenEnhancer {
 		Map<String, Object> map = new LinkedHashMap<>();
 		map.put("id",user.getId());
 		map.put("account",user.getAccount());
+		map.put("tenantCode",user.getTenantCode());
 		map.put("phone",user.getPhone());
 		map.put("avatar",user.getAvatar());
 		map.put("username",user.getUsername());

@@ -9,4 +9,7 @@ import org.apache.ibatis.annotations.Param;
 @Mapper
 public interface SysCustomerMapper extends BaseMapper<SysCustomer> {
    SysCustomerVO selectUserByCondition(@Param("cusVo") SysCustomerVO sysCustomerVO);
+
+   SysCustomerVO getUserById(@Param("id") Long id);
+
 }

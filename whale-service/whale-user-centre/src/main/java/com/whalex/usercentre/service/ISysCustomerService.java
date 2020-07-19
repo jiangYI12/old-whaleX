@@ -12,4 +12,7 @@ import com.whalex.userCentre.api.entity.SysCustomer;
  */
 public interface ISysCustomerService extends IService<SysCustomer> {
     WhaleUsers selectUserAndRoleByAccount(String account, String tenantCode);
+
+    WhaleUsers getUserById(Long id);
+
 }

@@ -1,6 +1,12 @@
 package com.whalex.usercentre.controller;
 
+import com.whalex.common.core.baseEntity.WhaleUsers;
+import com.whalex.common.core.returnResult.R;
+import com.whalex.common.core.util.AuthUtil;
+import com.whalex.usercentre.service.ISysCustomerService;
 import lombok.AllArgsConstructor;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -12,5 +18,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @AllArgsConstructor
 public class SysCustomerController {
+    private ISysCustomerService iSysCustomerService;
 
+    @RequestMapping("/getUserById")
+    public R<WhaleUsers> getUserById(){
+        return R.data(iSysCustomerService.getUserById(AuthUtil.getId()));
+    }
 }

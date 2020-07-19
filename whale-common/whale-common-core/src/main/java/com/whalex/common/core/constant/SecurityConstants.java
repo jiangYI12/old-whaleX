@@ -7,6 +7,19 @@ package com.whalex.common.core.constant;
  * date: 2020/7/12 10:33
  */
 public interface SecurityConstants {
+
+    /**
+     * head key
+     */
+    String AUTHORIZATION = "Authorization";
+
+
+    /**
+     * token前缀
+     */
+    String TOKEN_PREFIX = "bearer";
+
+
     /**
      * 加盐值
      */

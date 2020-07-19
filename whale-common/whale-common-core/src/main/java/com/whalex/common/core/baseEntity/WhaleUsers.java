@@ -18,6 +18,8 @@ public class WhaleUsers implements Serializable {
 
     private Long id;
 
+    private String tenantCode;
+
     private String account;
 
     /**

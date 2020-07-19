@@ -27,4 +27,9 @@
          and tenant_code = #{cusVo.tenantCode}
     </where>
   </select>
+
+  <select id="getUserById" parameterType="com.whalex.userCentre.api.vo.SysCustomerVO" resultType="com.whalex.userCentre.api.vo.SysCustomerVO">
+    SELECT <include refid="Base_Column_List"/> FROM sys_customer
+    WHERE ID = #{id}
+  </select>
 </mapper>

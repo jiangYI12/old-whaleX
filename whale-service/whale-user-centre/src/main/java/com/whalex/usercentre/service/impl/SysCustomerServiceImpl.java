@@ -63,4 +63,33 @@ public class SysCustomerServiceImpl extends ServiceImpl<SysCustomerMapper, SysCu
             whaleUsers.setRoleIds(roleIds);
         return whaleUsers;
     }
+
+    @Override
+    @SneakyThrows
+    public WhaleUsers getUserById(Long id) {
+        SysCustomerVO sysCustomerVO = new SysCustomerVO();
+        sysCustomerVO = this.baseMapper.selectUserByCondition(sysCustomerVO);
+        if(ObjectUtil.isEmpty(sysCustomerVO)){
+            throw new ServiceException("用户不存在");
+        }
+        WhaleUsers whaleUsers = new WhaleUsers();
+        BeanUtils.copyProperties(sysCustomerVO,whaleUsers);
+        //查找用户角色
+        List<SysRoleVO> sysRoleVOs = iSysRoleService.getCustomerRoleById(sysCustomerVO.getId());
+        sysCustomerVO.setRoles(sysRoleVOs);
+
+        List<String> roles = new LinkedList<>();
+        List<Long> roleIds = new LinkedList<>();
+        //获取权限
+        for (SysRoleVO s:sysRoleVOs) {
+            roles.add(s.getRoleCode());
+            roleIds.add(s.getId());
+            if(CollUtil.isEmpty(s.getSysMenus())){
+                break;
+            }
+        }
+        whaleUsers.setRoles(roles);
+        whaleUsers.setRoleIds(roleIds);
+        return whaleUsers;
+    }
 }

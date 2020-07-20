@@ -10,10 +10,12 @@ import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 
 /**
- * 解析JWT
+ * Description: jwt工具类
+ *
+ * @author: 🐋鲸鱼
+ * date: 2020/7/20 19:43
  */
-public aspect JWTUtil {
-
+public class JwtUtil {
     public static String BASE64_SECURITY;
 
     static {
@@ -24,14 +26,14 @@ public aspect JWTUtil {
         HttpServletRequest httpServletRequest = WebUtils.getRequest();
         String token = httpServletRequest.getHeader(SecurityConstants.AUTHORIZATION).replace(SecurityConstants.TOKEN_PREFIX,"").trim();
         Claims claims = Jwts.parser()
-                .setSigningKey(SecurityConstants.SIGN_KEY)
+                .setSigningKey(BASE64_SECURITY)
                 .parseClaimsJws(token).getBody();
         return  claims;
     }
 
     public static Claims parseJWT(String token){
         Claims claims = Jwts.parser()
-                .setSigningKey(SecurityConstants.SIGN_KEY)
+                .setSigningKey(BASE64_SECURITY)
                 .parseClaimsJws(token).getBody();
         return  claims;
     }

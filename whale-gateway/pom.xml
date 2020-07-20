@@ -13,6 +13,10 @@
     <description>whale 网关</description>
 
     <dependencies>
+        <dependency>
+            <groupId>com.whaleX</groupId>
+            <artifactId>whale-common-core</artifactId>
+        </dependency>
         <!--注册中心客户端-->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>

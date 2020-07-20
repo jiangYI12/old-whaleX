@@ -1,10 +1,9 @@
 package com.whalex.common.core.util;
 
+import cn.hutool.json.JSONObject;
 import com.whalex.common.core.baseEntity.WhaleUsers;
-import com.whalex.common.core.constant.SecurityConstants;
 import com.whalex.common.tool.webUtil.WebUtils;
 import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jwts;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -16,34 +15,22 @@ import javax.servlet.http.HttpServletRequest;
  */
 public class AuthUtil {
 
+    public static String JWT_PARSE_KEY = "JWT_PARSE_KEY";
+
+
+
     public static WhaleUsers getWhaleXUser(){
         HttpServletRequest httpServletRequest = WebUtils.getRequest();
-        String token = httpServletRequest.getHeader(SecurityConstants.AUTHORIZATION).replace(SecurityConstants.TOKEN_PREFIX,"").trim();
-        Claims claims = Jwts.parser()
-                .setSigningKey(SecurityConstants.SIGN_KEY)
-                .parseClaimsJws(token).getBody();
-        return (WhaleUsers) claims;
+        String claims = httpServletRequest.getParameter(JWT_PARSE_KEY);
+
+        return null;
     }
 
-    public static Long getId(){
+    public static Long getUserId(){
         HttpServletRequest httpServletRequest = WebUtils.getRequest();
-        String token = httpServletRequest.getHeader(SecurityConstants.AUTHORIZATION).replace(SecurityConstants.TOKEN_PREFIX,"").trim();
-        Claims claims = Jwts.parser()
-                .setSigningKey(SecurityConstants.SIGN_KEY)
-                .parseClaimsJws(token).getBody();
-        WhaleUsers whaleUsers =  (WhaleUsers) claims;
-        return whaleUsers.getId();
-    }
+        String claims = httpServletRequest.getParameter(JWT_PARSE_KEY);
 
-
-    public static String getTenant(){
-        HttpServletRequest httpServletRequest = WebUtils.getRequest();
-        String token = httpServletRequest.getHeader(SecurityConstants.AUTHORIZATION).replace(SecurityConstants.TOKEN_PREFIX,"").trim();
-        Claims claims = Jwts.parser()
-                .setSigningKey(SecurityConstants.SIGN_KEY)
-                .parseClaimsJws(token).getBody();
-        WhaleUsers whaleUsers =  (WhaleUsers) claims;
-        return whaleUsers.getTenantCode();
+        return null;
     }
 
 }

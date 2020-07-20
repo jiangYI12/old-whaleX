@@ -34,7 +34,6 @@ public class SysCustomerServiceImpl extends ServiceImpl<SysCustomerMapper, SysCu
     private ISysRoleService iSysRoleService;
 
     @Override
-    @SneakyThrows
     public WhaleUsers selectUserAndRoleByAccount(String account, String tenantCode) {
         SysCustomerVO sysCustomerVO = new SysCustomerVO();
         sysCustomerVO.setAccount(account);
@@ -65,10 +64,8 @@ public class SysCustomerServiceImpl extends ServiceImpl<SysCustomerMapper, SysCu
     }
 
     @Override
-    @SneakyThrows
     public WhaleUsers getUserById(Long id) {
-        SysCustomerVO sysCustomerVO = new SysCustomerVO();
-        sysCustomerVO = this.baseMapper.selectUserByCondition(sysCustomerVO);
+        SysCustomerVO sysCustomerVO = this.baseMapper.getUserById(id);
         if(ObjectUtil.isEmpty(sysCustomerVO)){
             throw new ServiceException("用户不存在");
         }

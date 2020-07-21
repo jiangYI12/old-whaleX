@@ -1,4 +1,4 @@
-package com.whalex.common.mybatisPlus;
+package com.whalex.common.mybatisPlus.entity;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -17,7 +17,6 @@ public class TenantEntity extends BaseEntity {
     /**
      * 租户ID
      */
-    @TableField("tenant_code")
     @ApiModelProperty(value = "租户ID")
     private String tenantCode;
 

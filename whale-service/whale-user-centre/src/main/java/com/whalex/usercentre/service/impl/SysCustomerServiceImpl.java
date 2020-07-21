@@ -15,6 +15,7 @@ import com.whalex.usercentre.service.ISysCustomerService;
 import com.whalex.usercentre.service.ISysRoleService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.BeanUtils;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import com.whalex.userCentre.api.entity.SysCustomer;
 import com.whalex.userCentre.api.vo.SysCustomerVO;
@@ -39,6 +40,7 @@ public class SysCustomerServiceImpl extends ServiceImpl<SysCustomerMapper, SysCu
 
     private ISysCustomerRoleService iSysCustomerRoleService;
 
+    private PasswordEncoder passwordEncoder;
     @Override
     public WhaleUsers selectUserAndRoleByAccount(String account, String tenantCode) {
         SysCustomerVO sysCustomerVO = new SysCustomerVO();
@@ -99,12 +101,15 @@ public class SysCustomerServiceImpl extends ServiceImpl<SysCustomerMapper, SysCu
     @Override
     public IPage<SysCustomer> getUserPage(SysCustomerVO sysCustomerVO) {
         IPage iPage = new Page(sysCustomerVO.getPageNo(),sysCustomerVO.getPageSize());
-        return this.baseMapper.selectPage(iPage,Wrappers.emptyWrapper());
+        iPage = this.baseMapper.selectPage(iPage,Wrappers.emptyWrapper());
+        return iPage;
     }
 
     @Override
     @Transactional
     public Boolean saveOrUpdateCustomer(SysCustomerVO sysCustomerVO) {
+        //设置密码加密
+        sysCustomerVO.setPassword(passwordEncoder.encode(sysCustomerVO.getPassword()));
         boolean isSuccess = this.saveOrUpdate(sysCustomerVO);
         if(isSuccess){
             List<SysCustomerRole> sysCustomerRoles = new LinkedList<>();

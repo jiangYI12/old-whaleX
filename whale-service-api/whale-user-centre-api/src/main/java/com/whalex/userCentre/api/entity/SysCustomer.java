@@ -1,6 +1,6 @@
 package com.whalex.userCentre.api.entity;
 import lombok.Data;
-import com.whalex.common.mybatisPlus.TenantEntity;
+import com.whalex.common.mybatisPlus.entity.TenantEntity;
 
 /**
  * sys_customer

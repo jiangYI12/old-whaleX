@@ -1,4 +1,4 @@
-package com.whalex.common.mybatisPlus;
+package com.whalex.common.mybatisPlus.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;

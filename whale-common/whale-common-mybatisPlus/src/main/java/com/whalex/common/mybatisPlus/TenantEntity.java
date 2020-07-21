@@ -1,5 +1,6 @@
 package com.whalex.common.mybatisPlus;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import io.swagger.annotations.ApiModelProperty;
@@ -16,12 +17,14 @@ public class TenantEntity extends BaseEntity {
     /**
      * 租户ID
      */
+    @TableField("tenant_code")
     @ApiModelProperty(value = "租户ID")
     private String tenantCode;
 
     /**
      * 创建人
      */
+    @TableField("create_user")
     @JsonSerialize(using = ToStringSerializer.class)
     @ApiModelProperty(value = "创建人")
     private Long createUser;
@@ -29,6 +32,7 @@ public class TenantEntity extends BaseEntity {
     /**
      * 更新人
      */
+    @TableField("update_user")
     @JsonSerialize(using = ToStringSerializer.class)
     @ApiModelProperty(value = "更新人")
     private Long updateUser;

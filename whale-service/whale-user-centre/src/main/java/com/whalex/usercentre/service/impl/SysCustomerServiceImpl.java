@@ -2,20 +2,24 @@ package com.whalex.usercentre.service.impl;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.ObjectUtil;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.whalex.common.core.baseEntity.WhaleUsers;
 import com.whalex.common.mvc.customException.ServiceException;
+import com.whalex.userCentre.api.entity.SysCustomerRole;
 import com.whalex.usercentre.mapper.SysCustomerMapper;
+import com.whalex.usercentre.service.ISysCustomerRoleService;
 import com.whalex.usercentre.service.ISysCustomerService;
 import com.whalex.usercentre.service.ISysRoleService;
 import lombok.AllArgsConstructor;
-import lombok.SneakyThrows;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import com.whalex.userCentre.api.entity.SysCustomer;
-import com.whalex.userCentre.api.entity.SysMenu;
 import com.whalex.userCentre.api.vo.SysCustomerVO;
 import com.whalex.userCentre.api.vo.SysRoleVO;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -32,6 +36,8 @@ public class SysCustomerServiceImpl extends ServiceImpl<SysCustomerMapper, SysCu
 
 
     private ISysRoleService iSysRoleService;
+
+    private ISysCustomerRoleService iSysCustomerRoleService;
 
     @Override
     public WhaleUsers selectUserAndRoleByAccount(String account, String tenantCode) {
@@ -89,4 +95,33 @@ public class SysCustomerServiceImpl extends ServiceImpl<SysCustomerMapper, SysCu
         whaleUsers.setRoleIds(roleIds);
         return whaleUsers;
     }
+
+    @Override
+    public IPage<SysCustomer> getUserPage(SysCustomerVO sysCustomerVO) {
+        IPage iPage = new Page(sysCustomerVO.getPageNo(),sysCustomerVO.getPageSize());
+        return this.baseMapper.selectPage(iPage,Wrappers.emptyWrapper());
+    }
+
+    @Override
+    @Transactional
+    public Boolean saveOrUpdateCustomer(SysCustomerVO sysCustomerVO) {
+        boolean isSuccess = this.saveOrUpdate(sysCustomerVO);
+        if(isSuccess){
+            List<SysCustomerRole> sysCustomerRoles = new LinkedList<>();
+            for (SysRoleVO s:sysCustomerVO.getRoles()) {
+                SysCustomerRole sysCustomerRole = new SysCustomerRole();
+                sysCustomerRole.setRoleId(s.getId());
+                sysCustomerRole.setCustomerId(sysCustomerVO.getId());
+            }
+         return   iSysCustomerRoleService.saveBatch(sysCustomerRoles);
+        }
+        return false;
+    }
+
+    @Override
+    public Boolean deleteSysCustomer(Long id) {
+        return this.removeById(id);
+    }
+
+
 }

@@ -15,7 +15,7 @@
 
   <sql id="Base_Column_List">
     id, account, username, `password`, tenant_code, phone, avatar, create_time,
-    update_time, `status`, is_delete,createUser,updateUser
+    update_time, `status`, is_delete,create_user,update_user
   </sql>
 
   <select id="selectUserByCondition" parameterType="com.whalex.userCentre.api.vo.SysCustomerVO" resultType="com.whalex.userCentre.api.vo.SysCustomerVO">

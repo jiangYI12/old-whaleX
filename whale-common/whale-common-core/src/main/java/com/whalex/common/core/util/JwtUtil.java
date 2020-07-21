@@ -26,15 +26,16 @@ public class JwtUtil {
         HttpServletRequest httpServletRequest = WebUtils.getRequest();
         String token = httpServletRequest.getHeader(SecurityConstants.AUTHORIZATION).replace(SecurityConstants.TOKEN_PREFIX,"").trim();
         Claims claims = Jwts.parser()
-                .setSigningKey(BASE64_SECURITY)
+                .setSigningKey(Base64.getDecoder().decode(BASE64_SECURITY))
                 .parseClaimsJws(token).getBody();
         return  claims;
     }
 
     public static Claims parseJWT(String token){
         Claims claims = Jwts.parser()
-                .setSigningKey(BASE64_SECURITY)
-                .parseClaimsJws(token).getBody();
+                .setSigningKey(Base64.getDecoder().decode(BASE64_SECURITY))
+                .parseClaimsJws(token)
+                .getBody();
         return  claims;
     }
 }

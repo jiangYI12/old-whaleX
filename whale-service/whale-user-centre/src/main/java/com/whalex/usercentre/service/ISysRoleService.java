@@ -14,5 +14,7 @@ import java.util.List;
  */
 public interface ISysRoleService extends IService<SysRole> {
     List<SysRoleVO> getCustomerRoleById(Long customerId);
-
+    List<SysRole> getRolesBytenantCode();
+    Boolean saveOrUpdateSysRole(SysRole sysRole);
+    Boolean deleteSysRole(Long id);
 }

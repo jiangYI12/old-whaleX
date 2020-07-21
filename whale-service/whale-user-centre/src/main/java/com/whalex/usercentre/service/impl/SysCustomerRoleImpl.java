@@ -8,4 +8,8 @@ import com.whalex.userCentre.api.entity.SysCustomerRole;
 
 @Service
 public class SysCustomerRoleImpl extends ServiceImpl<SysCustomerRoleMapper, SysCustomerRole> implements ISysCustomerRoleService {
+    @Override
+    public Boolean deleteSysCustomerRole(Long id) {
+        return this.baseMapper.deleteById(id) > 0;
+    }
 }

@@ -1,5 +1,6 @@
 package com.whalex.usercentre.service.impl;
 
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.whalex.usercentre.mapper.SysRoleMapper;
 import com.whalex.usercentre.service.ISysRoleService;
@@ -25,4 +26,21 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
     public List<SysRoleVO> getCustomerRoleById(Long customerId) {
         return this.baseMapper.getCustomerRoleById(customerId);
     }
+
+    @Override
+    public List<SysRole> getRolesBytenantCode() {
+        return this.baseMapper.selectList(Wrappers.emptyWrapper());
+    }
+
+    @Override
+    public Boolean saveOrUpdateSysRole(SysRole sysRole) {
+        return this.saveOrUpdate(sysRole);
+    }
+
+    @Override
+    public Boolean deleteSysRole(Long id) {
+        return this.removeById(id);
+    }
+
+
 }

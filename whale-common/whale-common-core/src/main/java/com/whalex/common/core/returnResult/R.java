@@ -45,6 +45,13 @@ public class R<T> {
         }
     }
 
+    public static R<Boolean> status(Boolean b){
+        if (b){
+            return restResult(ResultStatus.SUCCESS,"操作成功",null);
+        }
+        return restResult(ResultStatus.FAILE,"操作失败",null);
+    }
+
     public static <T> R<T> success(T data){
         return restResult(ResultStatus.SUCCESS,"请求成功",data);
     }

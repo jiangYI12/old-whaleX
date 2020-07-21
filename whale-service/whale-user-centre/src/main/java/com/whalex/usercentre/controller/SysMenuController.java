@@ -2,6 +2,7 @@ package com.whalex.usercentre.controller;
 
 import com.whalex.common.core.returnResult.R;
 import com.whalex.userCentre.api.entity.SysMenu;
+import com.whalex.userCentre.api.vo.SysMenuVo;
 import com.whalex.usercentre.service.ISysMenuService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -27,4 +28,8 @@ public class SysMenuController {
         return R.data(iSysMenuService.getMenuByRoleId(ids));
     }
 
+    @RequestMapping("/saveOrUpdate")
+    public R saveOrUpdate(@RequestBody SysMenuVo sysMenuVo){
+        return R.status(iSysMenuService.saveOrUpdateMenu(sysMenuVo));
+    }
 }

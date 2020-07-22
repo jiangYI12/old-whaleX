@@ -117,8 +117,9 @@ public class SysCustomerServiceImpl extends ServiceImpl<SysCustomerMapper, SysCu
                 SysCustomerRole sysCustomerRole = new SysCustomerRole();
                 sysCustomerRole.setRoleId(s.getId());
                 sysCustomerRole.setCustomerId(sysCustomerVO.getId());
+                sysCustomerRoles.add(sysCustomerRole);
             }
-         return   iSysCustomerRoleService.saveBatch(sysCustomerRoles);
+         return  iSysCustomerRoleService.saveBatch(sysCustomerRoles);
         }
         return false;
     }

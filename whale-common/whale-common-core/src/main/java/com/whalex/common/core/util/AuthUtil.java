@@ -23,9 +23,9 @@ public class AuthUtil {
     public static String JWT_PARSE_KEY = "JWT_PARSE_KEY";
 
 
-
     public static WhaleUsers getWhaleXUser(){
         HttpServletRequest httpServletRequest = WebUtils.getRequest();
+        if(ObjectUtil.isEmpty(httpServletRequest)) return null;
         String claims = httpServletRequest.getHeader(JWT_PARSE_KEY);
         if(ObjectUtil.isEmpty(claims)){
             return null;
@@ -38,6 +38,7 @@ public class AuthUtil {
 
     public static Long getUserId(){
         HttpServletRequest httpServletRequest = WebUtils.getRequest();
+        if(ObjectUtil.isEmpty(httpServletRequest)) return null;
         String claims = httpServletRequest.getHeader(JWT_PARSE_KEY);
         if(ObjectUtil.isEmpty(claims)){
             return null;
@@ -48,6 +49,7 @@ public class AuthUtil {
 
     public static String getTenantCode(){
         HttpServletRequest httpServletRequest = WebUtils.getRequest();
+        if(ObjectUtil.isEmpty(httpServletRequest)) return null;
         String claims = httpServletRequest.getHeader(JWT_PARSE_KEY);
         if(ObjectUtil.isEmpty(claims)){
             return null;

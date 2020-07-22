@@ -15,7 +15,7 @@
  * Author: lengleng (wangiegie@gmail.com)
  */
 
-package com.whalex.common.redis;
+package com.whalex.common.redis.config;
 
 import lombok.AllArgsConstructor;
 import org.springframework.boot.autoconfigure.AutoConfigureBefore;

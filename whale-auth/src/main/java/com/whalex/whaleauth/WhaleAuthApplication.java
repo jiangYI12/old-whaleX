@@ -1,4 +1,4 @@
-package com.whalex;
+package com.whalex.whaleauth;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.cloud.client.SpringCloudApplication;

@@ -36,5 +36,8 @@ public class SysMenu extends TenantEntity {
 
     private String path;
 
+    private Integer sort;
+
+    private String keepAlive;
     private static final long serialVersionUID = 1L;
 }

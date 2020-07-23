@@ -15,4 +15,8 @@ import java.util.List;
 @Data
 public class SysRoleVO extends SysRole {
     private List<SysMenu> sysMenus;
+
+    private Integer pageSize;
+
+    private Integer pageNo;
 }

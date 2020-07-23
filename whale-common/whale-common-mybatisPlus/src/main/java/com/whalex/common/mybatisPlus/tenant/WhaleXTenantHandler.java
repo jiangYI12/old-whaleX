@@ -79,7 +79,7 @@ public class WhaleXTenantHandler implements TenantHandler {
 			return Boolean.TRUE;
 		}
 
-		return !properties.getTables().contains(tableName);
+		return properties.getTables().contains(tableName);
 	}
 
 }

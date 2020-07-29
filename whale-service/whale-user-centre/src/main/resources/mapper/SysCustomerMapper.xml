@@ -32,4 +32,10 @@
     SELECT <include refid="Base_Column_List"/> FROM sys_customer
     WHERE ID = #{id}
   </select>
+    <select id="getUserDetailPage" resultType="com.whalex.userCentre.api.vo.SysCustomerVO">
+      select sc.*,group_concat(sr.id) as roleIds,group_concat(sr.role_name) as roleNames  from sys_customer sc
+       LEFT JOIN sys_customer_role scr on scr.customer_id = sc.id
+       LEFT JOIN sys_role sr on sr.id = scr.role_id
+       group by sc.id
+    </select>
 </mapper>

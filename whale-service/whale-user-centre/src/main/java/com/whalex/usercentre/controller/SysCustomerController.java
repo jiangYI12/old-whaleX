@@ -33,7 +33,7 @@ public class SysCustomerController {
 
 
     @PostMapping("/getUserPage")
-    public R<IPage<SysCustomer>> getUserPage(@RequestBody SysCustomerVO sysCustomerVO){
+    public R<IPage<SysCustomerVO>> getUserPage(@RequestBody SysCustomerVO sysCustomerVO){
         return R.data(iSysCustomerService.getUserPage(sysCustomerVO));
     }
 

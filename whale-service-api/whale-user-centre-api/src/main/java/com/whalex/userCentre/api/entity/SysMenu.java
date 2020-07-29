@@ -1,5 +1,6 @@
 package com.whalex.userCentre.api.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Data;
 import com.whalex.common.mybatisPlus.entity.TenantEntity;
 
@@ -29,15 +30,12 @@ public class SysMenu extends TenantEntity {
      */
     private String icon;
 
-    /**
-     * 权限编号
-     */
-    private Integer code;
-
     private String path;
 
     private Integer sort;
 
+    @TableField(exist = false)
     private String keepAlive;
+
     private static final long serialVersionUID = 1L;
 }

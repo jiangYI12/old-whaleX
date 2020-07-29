@@ -19,7 +19,7 @@ public interface ISysCustomerService extends IService<SysCustomer> {
 
     WhaleUsers getUserById(Long id);
 
-    IPage<SysCustomer> getUserPage(SysCustomerVO sysCustomerVO);
+    IPage<SysCustomerVO> getUserPage(SysCustomerVO sysCustomerVO);
 
     Boolean saveOrUpdateCustomer(SysCustomerVO sysCustomerVO);
 

@@ -19,6 +19,8 @@
 
 package com.whalex.userCentre.api.dto;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -36,9 +38,11 @@ import java.util.List;
 public class TreeNode {
 
 	@ApiModelProperty(value = "当前节点id")
+	@JsonSerialize(using = ToStringSerializer.class)
 	protected Long id;
 
 	@ApiModelProperty(value = "父节点id")
+	@JsonSerialize(using = ToStringSerializer.class)
 	protected Long parentId;
 
 	@ApiModelProperty(value = "子节点列表")

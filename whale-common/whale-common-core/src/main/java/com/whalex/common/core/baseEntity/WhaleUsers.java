@@ -1,5 +1,7 @@
 package com.whalex.common.core.baseEntity;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -44,7 +46,7 @@ public class WhaleUsers implements Serializable {
 
     private List<String> roles;
 
-    private List<Long> roleIds;
+    private List<String> roleIds;
 
     private static final long serialVersionUID = 1L;
 

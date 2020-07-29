@@ -34,7 +34,8 @@ public class WhaleXCustomerDetailService implements UserDetailsService {
     @SneakyThrows
     @Override
     public UserDetails loadUserByUsername(String account) throws UsernameNotFoundException {
-       R<WhaleUsers> r = iSysCustomerFegin.getSysCustomerByAccount(account, WebUtils.getRequest().getHeader(SysConstant.TENANT_CODE));
+
+        R<WhaleUsers> r = iSysCustomerFegin.getSysCustomerByAccount(account, WebUtils.getRequest().getHeader(SysConstant.TENANT_CODE));
 
        WhaleUsers whaleUsers = null;
 

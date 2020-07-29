@@ -41,6 +41,7 @@ public class SysCustomerServiceImpl extends ServiceImpl<SysCustomerMapper, SysCu
     private ISysCustomerRoleService iSysCustomerRoleService;
 
     private PasswordEncoder passwordEncoder;
+
     @Override
     public WhaleUsers selectUserAndRoleByAccount(String account, String tenantCode) {
         SysCustomerVO sysCustomerVO = new SysCustomerVO();
@@ -57,13 +58,13 @@ public class SysCustomerServiceImpl extends ServiceImpl<SysCustomerMapper, SysCu
         sysCustomerVO.setRoles(sysRoleVOs);
 
             List<String> roles = new LinkedList<>();
-            List<Long> roleIds = new LinkedList<>();
+            List<String> roleIds = new LinkedList<>();
             //获取权限
             for (SysRoleVO s:sysRoleVOs) {
                 roles.add(s.getRoleCode());
-                roleIds.add(s.getId());
+                roleIds.add(s.getId()+"");
                 if(CollUtil.isEmpty(s.getSysMenus())){
-                    break;
+                    continue;
                 }
             }
             whaleUsers.setRoles(roles);
@@ -84,13 +85,13 @@ public class SysCustomerServiceImpl extends ServiceImpl<SysCustomerMapper, SysCu
         sysCustomerVO.setRoles(sysRoleVOs);
 
         List<String> roles = new LinkedList<>();
-        List<Long> roleIds = new LinkedList<>();
+        List<String> roleIds = new LinkedList<>();
         //获取权限
         for (SysRoleVO s:sysRoleVOs) {
             roles.add(s.getRoleCode());
-            roleIds.add(s.getId());
+            roleIds.add(s.getId()+"");
             if(CollUtil.isEmpty(s.getSysMenus())){
-                break;
+                continue;
             }
         }
         whaleUsers.setRoles(roles);
@@ -99,10 +100,9 @@ public class SysCustomerServiceImpl extends ServiceImpl<SysCustomerMapper, SysCu
     }
 
     @Override
-    public IPage<SysCustomer> getUserPage(SysCustomerVO sysCustomerVO) {
+    public IPage<SysCustomerVO> getUserPage(SysCustomerVO sysCustomerVO) {
         IPage iPage = new Page(sysCustomerVO.getPageNo(),sysCustomerVO.getPageSize());
-        iPage = this.baseMapper.selectPage(iPage,Wrappers.emptyWrapper());
-        return iPage;
+        return  this.baseMapper.getUserDetailPage(iPage);
     }
 
     @Override

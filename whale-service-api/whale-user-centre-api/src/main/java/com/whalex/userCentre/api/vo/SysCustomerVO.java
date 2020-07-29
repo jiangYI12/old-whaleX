@@ -13,7 +13,12 @@ import java.util.List;
  */
 @Data
 public class SysCustomerVO extends SysCustomer {
+
     private List<SysRoleVO> roles;
+
+    private String roleIds;
+
+    private String roleNames;
 
     private Integer pageSize;
 

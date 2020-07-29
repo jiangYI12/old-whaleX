@@ -78,7 +78,6 @@ public class WhaleXTenantHandler implements TenantHandler {
 		if (tenantId == null) {
 			return Boolean.TRUE;
 		}
-
 		return properties.getTables().contains(tableName);
 	}
 

@@ -15,6 +15,7 @@
         <module>whale-user-centre-api</module>
         <module>whale-service-bom</module>
         <module>whale-system-api</module>
+        <module>whale-pay-api</module>
     </modules>
 
     <dependencies>

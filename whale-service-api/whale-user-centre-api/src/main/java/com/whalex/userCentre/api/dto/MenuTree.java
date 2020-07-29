@@ -19,13 +19,19 @@
 
 package com.whalex.userCentre.api.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.whalex.common.tool.timeUtil.DateUtil;
 import com.whalex.userCentre.api.entity.SysMenu;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.util.Date;
 
 /**
  * @description: 菜单树
@@ -82,11 +88,17 @@ public class MenuTree extends TreeNode implements Serializable {
 	@ApiModelProperty(value = "排序值")
 	private Integer sort;
 
+	@DateTimeFormat(pattern = DateUtil.PATTERN_DATETIME)
+	@JsonFormat(pattern = DateUtil.PATTERN_DATETIME)
+	@ApiModelProperty(value = "创建时间")
+	private LocalDateTime createTime;
+
 	/**
 	 * 是否包含子节点
 	 *
 	 * @since 3.7
 	 */
+	@JsonInclude(JsonInclude.Include.NON_NULL)
 	private Boolean hasChildren;
 
 	public MenuTree() {

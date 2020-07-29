@@ -104,7 +104,7 @@ public class TreeUtil {
 	 * @param root
 	 * @return
 	 */
-	public List<MenuTree> buildTree(List<SysMenu> menus, int root) {
+	public List<MenuTree> buildTree(List<SysMenu> menus, Long root) {
 		List<MenuTree> trees = new ArrayList<>();
 		MenuTree node;
 		for (SysMenu menu : menus) {
@@ -117,7 +117,8 @@ public class TreeUtil {
 			node.setLabel(menu.getName());
 			node.setIcon(menu.getIcon());
 			node.setSort(menu.getSort());
-			node.setHasChildren(true);
+			node.setCreateTime(menu.getCreateTime());
+//			node.setHasChildren(true);
 			node.setKeepAlive(menu.getKeepAlive());
 			trees.add(node);
 		}

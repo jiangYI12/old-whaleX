@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 public class PayOrderServiceImpl implements IPayOrderService {
 
     @Override
-    public Boolean payPreCreate() {
+    public String payPreCreate() {
         return AliPayUtil.createOrder();
     }
 

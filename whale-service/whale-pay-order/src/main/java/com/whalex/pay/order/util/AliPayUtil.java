@@ -14,21 +14,21 @@ import com.alipay.easysdk.payment.facetoface.models.AlipayTradePrecreateResponse
 public  class AliPayUtil {
 
 
-    public  static Boolean createOrder(){
+    public static String createOrder(){
         // 1. 设置参数（全局只需设置一次）
         Factory.setOptions(getOptions());
         try {
 
             // 2. 发起API调用（以创建当面付收款二维码为例）
             AlipayTradePrecreateResponse response = Factory.Payment.FaceToFace()
-                    .preCreate("Apple iPhone11 128G", "2234567890", "5799.00");
+                    .preCreate("Apple iPhone11 64G", "2234151690", "11.00");
             // 3. 处理响应或异常
             if (ResponseChecker.success(response)) {
                 System.out.println("调用成功");
-                return true;
+                return response.qrCode;
             } else {
                 System.err.println("调用失败，原因：" + response.msg + "，" + response.subMsg);
-                return false;
+                return response.msg;
             }
         } catch (Exception e) {
             System.err.println("调用遭遇异常，原因：" + e.getMessage());
@@ -60,7 +60,7 @@ public  class AliPayUtil {
          config.alipayPublicKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAiyvsR8zzrrpmqFaMH+d1mB/cUrlD4vGb8gFScNPapZhjKpim8aFww3zyFKqtrC3Ge8LZbAoJ0oj4amEh1r3YgptG1D9XSFegAxWhEEDzT1YhgpTfoFE+ZN1p/iAB0FTdmKTuFSDC2FUmrgfRq4WD0Cu5hV0X8pH9EtI+SUORrU9vx0kKV9rvZI4dZi4MwVSTfG8G0Ek55FIc6+1HLlY5rimVaKzkkHoBKejpWy6vLT374GCOyeXMurFLEmcoNiA+WrH7hmzm4BSrH823kvB7d8zik0FoFtYxbTm2D8g8FhWLaLUDMk57a+VzRcRYR2ihd4u33jeX45TvhpJN/++pKwIDAQAB";
 
         //可设置异步通知接收服务地址（可选） <-- 请填写您的支付类接口异步通知接收服务地址，例如：https://www.test.com/callback -->
-        config.notifyUrl = "";
+        config.notifyUrl = "http://9vuwh2.natappfree.cc/whale-pay/payOrder/callBack";
 
         //可设置AES密钥，调用AES加解密相关接口时需要（可选） <-- 请填写您的AES密钥，例如：aa4BtZ4tspm2wnXLb1ThQA== -->
         config.encryptKey = "gJigCrdddRvJIZo+tid2Qw==";

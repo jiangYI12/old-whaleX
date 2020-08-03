@@ -3,7 +3,14 @@ package com.whalex.pay.order.util;
 import com.alipay.easysdk.factory.Factory;
 import com.alipay.easysdk.kernel.Config;
 import com.alipay.easysdk.kernel.util.ResponseChecker;
+import com.alipay.easysdk.payment.common.models.AlipayDataDataserviceBillDownloadurlQueryResponse;
+import com.alipay.easysdk.payment.common.models.AlipayTradeFastpayRefundQueryResponse;
+import com.alipay.easysdk.payment.common.models.AlipayTradeRefundResponse;
 import com.alipay.easysdk.payment.facetoface.models.AlipayTradePrecreateResponse;
+import com.alipay.easysdk.payment.page.models.AlipayTradePagePayResponse;
+import com.whalex.pay.api.entity.PayTest;
+import lombok.SneakyThrows;
+
 
 /**
  * Description:
@@ -13,15 +20,60 @@ import com.alipay.easysdk.payment.facetoface.models.AlipayTradePrecreateResponse
  */
 public  class AliPayUtil {
 
+    //https://opendocs.alipay.com/apis/api_1/alipay.trade.cancel 支付宝操作作用文档
+    //https://opendocs.alipay.com/open/00y8k9 支付宝 JDK 文档
+    //https://github.com/alipay/alipay-easysdk/blob/master/APIDoc.md 支付宝JDK参数详细文档
+    //https://opendocs.alipay.com/open/54/cyz7do 支付宝demo 与 jdk 下载地址
 
-    public static String createOrder(){
+    @SneakyThrows
+    public static String  downloadBill(PayTest payTest){
+        Factory.setOptions(getOptions());
+        //trade指商户基于支付宝交易收单的业务账单；signcustomer是指基于商户支付宝余额收入及支出等资金变动的帐务账单
+        //日账单格式为yyyy-MM-dd，最早可下载2016年1月1日开始的日账单；月账单格式为yyyy-MM，最早可下载2016年1月开始的月账单
+        AlipayDataDataserviceBillDownloadurlQueryResponse alipayDataDataserviceBillDownloadurlQueryResponse
+                = Factory.Payment.Common().downloadBill(payTest.getBillType(),
+                payTest.getStartTime().substring(0,7));
+        return alipayDataDataserviceBillDownloadurlQueryResponse.billDownloadUrl;
+    }
+
+    //交易退款查询
+    @SneakyThrows
+    public static AlipayTradeFastpayRefundQueryResponse queryRefund(PayTest payTest){
+        //outTradeNo 交易创建时传入的商户订单号
+        //outRequestNo 请求退款接口时，传入的退款请求号，如果在退款请求时未传入，则该值为创建交易时的外部交易号
+        AlipayTradeFastpayRefundQueryResponse alipayTradeFastpayRefundQueryResponse =
+                Factory.Payment.Common().queryRefund(payTest.getOrderNo(),payTest.getOrderNo());
+        return alipayTradeFastpayRefundQueryResponse;
+    }
+
+    public static AlipayTradeRefundResponse refund(PayTest payTest) throws Exception {
+        Factory.setOptions(getOptions());
+        AlipayTradeRefundResponse response = Factory.Payment.Common().refund(payTest.getOrderNo(), String.valueOf(payTest.getTotalAmount()));
+        // 3. 处理响应或异常
+        if (ResponseChecker.success(response)) {
+            System.out.println("调用成功");
+            return response;
+        } else {
+            System.err.println("调用失败，原因：" + response.msg + "，" + response.subMsg);
+            return response;
+        }
+    }
+
+    public static String createPage(PayTest payTest) throws Exception {
+        Factory.setOptions(getOptions());
+        AlipayTradePagePayResponse response =  Factory.Payment.Page()
+                .pay(payTest.getProductName(), payTest.getOrderNo(),String.valueOf(payTest.getTotalAmount()),"https://www.json.cn/");
+        return response.body;
+    }
+
+    public static String createOrder(PayTest payTest){
         // 1. 设置参数（全局只需设置一次）
         Factory.setOptions(getOptions());
         try {
 
             // 2. 发起API调用（以创建当面付收款二维码为例）
             AlipayTradePrecreateResponse response = Factory.Payment.FaceToFace()
-                    .preCreate("Apple iPhone11 64G", "2234151690", "11.00");
+                    .preCreate(payTest.getProductName(), payTest.getOrderNo(), String.valueOf(payTest.getTotalAmount()));
             // 3. 处理响应或异常
             if (ResponseChecker.success(response)) {
                 System.out.println("调用成功");
@@ -60,7 +112,7 @@ public  class AliPayUtil {
          config.alipayPublicKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAiyvsR8zzrrpmqFaMH+d1mB/cUrlD4vGb8gFScNPapZhjKpim8aFww3zyFKqtrC3Ge8LZbAoJ0oj4amEh1r3YgptG1D9XSFegAxWhEEDzT1YhgpTfoFE+ZN1p/iAB0FTdmKTuFSDC2FUmrgfRq4WD0Cu5hV0X8pH9EtI+SUORrU9vx0kKV9rvZI4dZi4MwVSTfG8G0Ek55FIc6+1HLlY5rimVaKzkkHoBKejpWy6vLT374GCOyeXMurFLEmcoNiA+WrH7hmzm4BSrH823kvB7d8zik0FoFtYxbTm2D8g8FhWLaLUDMk57a+VzRcRYR2ihd4u33jeX45TvhpJN/++pKwIDAQAB";
 
         //可设置异步通知接收服务地址（可选） <-- 请填写您的支付类接口异步通知接收服务地址，例如：https://www.test.com/callback -->
-        config.notifyUrl = "http://9vuwh2.natappfree.cc/whale-pay/payOrder/callBack";
+        config.notifyUrl = "http://b9ggb8.natappfree.cc/whale-pay/payOrder/callBack";
 
         //可设置AES密钥，调用AES加解密相关接口时需要（可选） <-- 请填写您的AES密钥，例如：aa4BtZ4tspm2wnXLb1ThQA== -->
         config.encryptKey = "gJigCrdddRvJIZo+tid2Qw==";

@@ -72,6 +72,10 @@
         </dependency>
         <dependency>
             <groupId>com.whaleX</groupId>
+            <artifactId>whale-pay-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.whaleX</groupId>
             <artifactId>whale-common-mybatisPlus</artifactId>
         </dependency>
         <dependency>

@@ -1,1 +1,72 @@
+server:
+  port: 10010
 
+spring:
+  application:
+    name: @artifactId@
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${NACOS_HOST:whalex-nacos}:${NACOS_PORT:8848}
+      config:
+        server-addr: ${spring.cloud.nacos.discovery.server-addr}
+        file-extension: yml
+        shared-configs:
+          - application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+    stream:
+      #绑定交换机名称与代码定义的通道名称相同
+      #外部消息传递系统和应用程序之间的桥梁，提供消息的“生产者”和“消费者”（由目标绑定器创建）
+      bindings:
+        #pay_output_channel 与binder对应
+        pay_output_channel:
+          destination: pay_channel
+          #对应queue 为了与kafaka兼容
+          group: pay-queue
+          binder: pay_channel
+          #需要设置不如ddl不生效
+          producer:
+            requiredGroups: pay-queue
+        #将消费者与binder绑定并划分组
+        pay_input_channel:
+          destination: pay_channel
+          #对应queue 为了与kafaka兼容
+          group: pay-queue
+          binder: pay_channel
+      rabbit:
+        bindings:
+          #定义消费者配置
+          pay_input_channel:
+            #一次消费多少条消息
+            consumer:
+              concurrency: 1
+              #重新排队 当发送失败是否
+              requeue-rejected: false
+              #签收模式 手工签收
+              acknowledge-mode: MANUAL
+              #连接恢复尝试之间的时间间隔（以毫秒为单位）。
+              recovery-interval: 3000
+              #是否持久化
+              durable-subscription: true
+              #最大消费者数量
+              max-concurrency: 5
+              #设置超时时间
+              ttl: 1000
+              # DLQ相关
+              autoBindDlq: true # 是否自动声明死信队列（DLQ）并将其绑定到死信交换机（DLX）。默认是false。
+      #Destination Binders：目标绑定器，目标指的是 kafka 还是 RabbitMQ，
+      #绑定器就是封装了目标中间件的包。如果操作的是 kafka 就使用 kafka binder ，
+      #如果操作的是 RabbitMQ 就使用 rabbitmq binder。
+      binders:
+        pay_channel:
+          #绑定消息中间件类型
+          type: rabbit
+          #链接配置
+          environment:
+            spring:
+              rabbitmq:
+                addresses: rabbitmq-path
+                username: guest
+                password: guest
+                virtual-host: /
+  profiles:
+    active: @profiles.active@

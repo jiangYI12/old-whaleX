@@ -74,6 +74,10 @@
         </dependency>
         <dependency>
             <groupId>com.whaleX</groupId>
+            <artifactId>whale-message-centre-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.whaleX</groupId>
             <artifactId>whale-common-redis</artifactId>
         </dependency>
         <dependency>

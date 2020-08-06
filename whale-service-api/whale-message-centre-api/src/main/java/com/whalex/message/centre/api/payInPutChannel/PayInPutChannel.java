@@ -1,10 +1,11 @@
-package com.whalex.message.centre.api.payChannel;
+package com.whalex.message.centre.api.payInPutChannel;
 
 
 import org.springframework.cloud.stream.annotation.Input;
 import org.springframework.cloud.stream.annotation.Output;
 import org.springframework.messaging.MessageChannel;
 import org.springframework.messaging.SubscribableChannel;
+import org.springframework.stereotype.Component;
 
 /**
  * Description:
@@ -14,21 +15,18 @@ import org.springframework.messaging.SubscribableChannel;
  * date: 2020/8/2 19:20
  */
 
-public interface PayChannel {
-
-    String OUTPUT_CHANNEL = "pay_output_channel";
+@Component
+public interface PayInPutChannel {
 
     String INPUT_CHANNEL = "pay_input_channel";
 
-    @Output(PayChannel.OUTPUT_CHANNEL)
-    MessageChannel payOutPutChannel();
 
     /**
      * 输入通道定义
      *
      * @return SubscribableChannel
      */
-    @Input(PayChannel.INPUT_CHANNEL)
+    @Input(PayInPutChannel.INPUT_CHANNEL)
     SubscribableChannel payInputChnnel();
 
 }

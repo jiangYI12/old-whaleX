@@ -1,5 +1,6 @@
 package com.whalex.whaleauth.config;
 
+import com.whalex.whaleauth.customException.UserOAuth2WebResponseExceptionTranslator;
 import com.whalex.whaleauth.tokenEnhancer.JwtTokenEnhancer;
 import com.whalex.whaleauth.granter.WhaleXTokenGranter;
 import com.whalex.whaleauth.service.WhaleXCustomerDetailService;
@@ -67,6 +68,8 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 .accessTokenConverter(jwtAccessTokenConverter)
                 //该字段设置设置refresh token是否重复使用,true:reuse;false:no reuse.
                 .reuseRefreshTokens(false)
+                //自定义认证异常返回格式
+                .exceptionTranslator(new UserOAuth2WebResponseExceptionTranslator())
                 //自定义令牌派发者(需要将原有的令牌派发类加入)
                 .tokenGranter(whaleXTokenGranter);
         //令牌增强

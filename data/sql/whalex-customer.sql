@@ -11,7 +11,7 @@
  Target Server Version : 50729
  File Encoding         : 65001
 
- Date: 19/07/2020 20:55:47
+ Date: 09/08/2020 22:46:39
 */
 
 SET NAMES utf8mb4;
@@ -31,10 +31,10 @@ CREATE TABLE `sys_customer`  (
   `avatar` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '头像',
   `create_time` datetime(0) NULL DEFAULT NULL,
   `update_time` datetime(0) NULL DEFAULT NULL,
-  `status` int(2) NULL DEFAULT NULL COMMENT '0停用 1启用',
-  `is_delete` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '0未删除 1删除',
-  `createUser` bigint(64) NULL DEFAULT NULL,
-  `updateUser` bigint(64) NULL DEFAULT NULL,
+  `status` int(2) NULL DEFAULT 1 COMMENT '0停用 1启用',
+  `is_delete` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '0' COMMENT '0未删除 1删除',
+  `create_user` bigint(64) NULL DEFAULT NULL,
+  `update_user` bigint(64) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `select_account`(`tenant_code`, `account`) USING BTREE,
   INDEX `select_password`(`tenant_code`, `phone`) USING BTREE
@@ -44,6 +44,7 @@ CREATE TABLE `sys_customer`  (
 -- Records of sys_customer
 -- ----------------------------
 INSERT INTO `sys_customer` VALUES (1, 'sdad23307216', 'Ai', '$2a$10$GABJlqwObPVT3coK2I3gleUfiURBgvDtw0wX//lWAWDNwIFPFZVtS', '0', '13202361544', 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2091711702,2468700162&fm=11&gp=0.jpg', '2020-07-11 17:53:00', NULL, 1, '0', NULL, NULL);
+INSERT INTO `sys_customer` VALUES (1286956233114275841, 'sdad23307211', '游客账户', '$2a$10$7uY6gaA8U9aF0Ik4GSoQJe9pXtQtMSXNzhnjwf1wtaqzAdySMTzO6', '0', '13202361544', '', '2020-07-25 17:27:31', NULL, 1, '1', NULL, NULL);
 
 -- ----------------------------
 -- Table structure for sys_customer_role
@@ -59,6 +60,8 @@ CREATE TABLE `sys_customer_role`  (
 -- Records of sys_customer_role
 -- ----------------------------
 INSERT INTO `sys_customer_role` VALUES (1, 1, 1);
+INSERT INTO `sys_customer_role` VALUES (1286956233152024578, 1286956233114275841, 2);
+INSERT INTO `sys_customer_role` VALUES (1286956233160413186, 1286956233114275841, 1286294220004405249);
 
 -- ----------------------------
 -- Table structure for sys_menu
@@ -66,26 +69,29 @@ INSERT INTO `sys_customer_role` VALUES (1, 1, 1);
 DROP TABLE IF EXISTS `sys_menu`;
 CREATE TABLE `sys_menu`  (
   `id` bigint(64) NOT NULL,
-  `permission_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '权限名',
-  `code` int(20) NULL DEFAULT NULL COMMENT '权限编号',
+  `permission_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '权限编码',
   `path` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '路径',
   `tenant_code` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `create_time` datetime(0) NULL DEFAULT NULL,
   `update_time` datetime(0) NULL DEFAULT NULL,
-  `is_delete` int(2) NULL DEFAULT NULL COMMENT '是否删除 0未删除 1删除',
-  `status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '0开启 1关闭',
-  `createUser` bigint(64) NULL DEFAULT NULL,
-  `updateUser` bigint(64) NULL DEFAULT NULL,
+  `is_delete` int(2) NULL DEFAULT 0 COMMENT '是否删除 0未删除 1删除',
+  `status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '0' COMMENT '0开启 1关闭',
+  `create_user` bigint(64) NULL DEFAULT NULL,
+  `update_user` bigint(64) NULL DEFAULT NULL,
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '菜单名',
-  `parentId` bigint(64) NULL DEFAULT NULL COMMENT '父类ID',
+  `parent_id` bigint(64) NULL DEFAULT NULL COMMENT '父类ID',
   `icon` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '标志',
+  `sort` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '排序',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '权限表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sys_menu
 -- ----------------------------
-INSERT INTO `sys_menu` VALUES (1, '12', 121, NULL, '0', '2020-07-31 12:35:12', '2020-07-01 12:35:16', 0, '1', NULL, NULL, '123', -1, NULL);
+INSERT INTO `sys_menu` VALUES (1, 'permissions', '/permissions', '0', '2020-07-31 12:35:12', '2020-07-01 12:35:16', 0, '0', NULL, NULL, '权限管理', -1, NULL, '1');
+INSERT INTO `sys_menu` VALUES (2, 'role', '/permissions/role/index', '0', '2020-07-25 14:13:10', NULL, 0, '0', NULL, NULL, '角色管理', 1, NULL, '1');
+INSERT INTO `sys_menu` VALUES (3, 'permission', '/permissions/permission/index', '0', '2020-07-25 14:15:06', NULL, 0, '0', NULL, NULL, '菜单管理', 1, NULL, '2');
+INSERT INTO `sys_menu` VALUES (1287231767190740993, 'userManager', '/userManager/index', '0', '2020-07-26 11:42:24', NULL, 0, '0', NULL, NULL, '用户管理', -1, '', '0');
 
 -- ----------------------------
 -- Table structure for sys_oauth_client_details
@@ -127,16 +133,20 @@ CREATE TABLE `sys_role`  (
   `is_delete` int(2) NULL DEFAULT 0 COMMENT '是否删除 0未删除 1删除',
   `create_time` datetime(0) NULL DEFAULT NULL,
   `update_time` datetime(0) NULL DEFAULT NULL,
-  `status` int(2) NULL DEFAULT NULL,
-  `createUser` bigint(64) NULL DEFAULT NULL,
-  `updateUser` bigint(64) NULL DEFAULT NULL,
+  `status` int(2) NULL DEFAULT 1,
+  `create_user` bigint(64) NULL DEFAULT NULL,
+  `update_user` bigint(64) NULL DEFAULT NULL,
+  `sort` int(10) NULL DEFAULT NULL COMMENT '排序',
+  `keepAlive` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '路由缓冲',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '角色表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sys_role
 -- ----------------------------
-INSERT INTO `sys_role` VALUES (1, '0', '管理员', 'admin', '管理员', 0, '2020-07-11 17:53:00', NULL, 1, NULL, NULL);
+INSERT INTO `sys_role` VALUES (1, '0', '管理员', 'admin', '管理员', 0, '2020-07-11 17:53:00', NULL, 1, NULL, NULL, NULL, NULL);
+INSERT INTO `sys_role` VALUES (2, '0', '普通用户', 'user', '普通用户', 0, '2020-07-21 20:45:34', NULL, 1, NULL, NULL, NULL, NULL);
+INSERT INTO `sys_role` VALUES (1286294220004405249, '0', '体验用户', 'anonymous', '体验用户', 0, '2020-07-23 21:36:55', NULL, 1, NULL, NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for sys_role_menu
@@ -152,7 +162,8 @@ CREATE TABLE `sys_role_menu`  (
 -- ----------------------------
 -- Records of sys_role_menu
 -- ----------------------------
-INSERT INTO `sys_role_menu` VALUES (1, 1, 1);
+INSERT INTO `sys_role_menu` VALUES (1287043740317265921, 1, 1);
+INSERT INTO `sys_role_menu` VALUES (1287255336972996609, 2, 3);
 
 -- ----------------------------
 -- Table structure for sys_tenant
@@ -165,7 +176,7 @@ CREATE TABLE `sys_tenant`  (
   `create_time` datetime(0) NULL DEFAULT NULL,
   `update_time` datetime(0) NULL DEFAULT NULL,
   `status` int(255) NOT NULL DEFAULT 1 COMMENT '0 关闭 1开启',
-  `createUser` bigint(64) NULL DEFAULT NULL,
+  `create_user` bigint(64) NULL DEFAULT NULL,
   `updateUser` bigint(64) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '租户表' ROW_FORMAT = Dynamic;

@@ -17,6 +17,7 @@
         <module>whale-system-api</module>
         <module>whale-pay-api</module>
         <module>whale-message-centre-api</module>
+        <module>whale-order-api</module>
     </modules>
 
     <dependencies>

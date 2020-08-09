@@ -9,8 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>whale-system-centre</artifactId>
-
+    <artifactId>whale-order-centre</artifactId>
 
     <dependencies>
         <dependency>
@@ -54,6 +53,19 @@
         </dependency>
         <dependency>
             <groupId>com.whaleX</groupId>
+            <artifactId>whale-order-api</artifactId>
+        </dependency>
+        <!-- druid 连接池 -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.whaleX</groupId>
+            <artifactId>whale-common-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.whaleX</groupId>
             <artifactId>whale-common-mybatisPlus</artifactId>
         </dependency>
         <dependency>
@@ -62,33 +74,11 @@
         </dependency>
         <dependency>
             <groupId>com.whaleX</groupId>
+            <artifactId>whale-message-centre-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.whaleX</groupId>
             <artifactId>whale-common-mvc</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.whaleX</groupId>
-            <artifactId>whale-common-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.whaleX</groupId>
-            <artifactId>whale-common-fegin</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.whaleX</groupId>
-            <artifactId>whale-common-redis</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.whaleX</groupId>
-            <artifactId>whale-common-gateway</artifactId>
-            <exclusions>
-                <exclusion>
-                        <groupId>org.springframework.boot</groupId>
-                        <artifactId>spring-boot-starter-data-redis-reactive</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>com.whaleX</groupId>
-            <artifactId>whale-system-api</artifactId>
         </dependency>
     </dependencies>
 

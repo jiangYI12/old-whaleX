@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 
 
 /**
- * 拦截所有inner注解
+ * 拦截所有inner注解,判断是否又带特定的标识,没有则不是程序信任的请求
  */
 @Slf4j
 @Aspect

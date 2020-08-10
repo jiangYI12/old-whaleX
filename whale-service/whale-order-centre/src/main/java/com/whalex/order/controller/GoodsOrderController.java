@@ -1,7 +1,9 @@
 package com.whalex.order.controller;
 
 import com.whalex.common.core.returnResult.R;
+import com.whalex.order.api.entity.PayGoodsOrder;
 import com.whalex.order.api.entity.PayTradeOrder;
+import com.whalex.order.service.IPayGoodsOrderService;
 import com.whalex.order.service.IPayTradeOrderService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,15 +17,14 @@ import org.springframework.web.bind.annotation.RestController;
  * date: 2020/8/8 22:30
  */
 @RestController
-@RequestMapping("/payOrder")
+@RequestMapping("/goodsOrder")
 @AllArgsConstructor
-public class PayOrderController {
+public class GoodsOrderController {
 
-    private IPayTradeOrderService iPayTradeOrderService;
-
+    private IPayGoodsOrderService iPayGoodsOrderService;
 
     @RequestMapping("/createOrder")
-    public R<PayTradeOrder> createOrder(@RequestBody PayTradeOrder payTradeOrder){
-        return R.data(iPayTradeOrderService.createOrder(payTradeOrder));
+    public R<PayGoodsOrder> createOrder(@RequestBody PayGoodsOrder payGoodsOrder){
+        return R.data(iPayGoodsOrderService.createGoodsOrder(payGoodsOrder));
     }
 }

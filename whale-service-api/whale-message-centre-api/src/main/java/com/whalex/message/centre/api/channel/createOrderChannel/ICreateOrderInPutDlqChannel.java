@@ -1,7 +1,6 @@
-package com.whalex.message.centre.api.payInPutChannel;
+package com.whalex.message.centre.api.channel.createOrderChannel;
 
 
-import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.annotation.Input;
 import org.springframework.messaging.SubscribableChannel;
 import org.springframework.stereotype.Component;
@@ -14,7 +13,7 @@ import org.springframework.stereotype.Component;
  * date: 2020/8/2 19:20
  */
 @Component
-public interface IPayInPutDlqChannel {
+public interface ICreateOrderInPutDlqChannel {
 
     String INPUT_CHANNEL = "pay_input_dlq_channel";
 
@@ -24,7 +23,7 @@ public interface IPayInPutDlqChannel {
      *
      * @return SubscribableChannel
      */
-    @Input(IPayInPutDlqChannel.INPUT_CHANNEL)
-    SubscribableChannel payInputChnnel();
+    @Input(ICreateOrderInPutDlqChannel.INPUT_CHANNEL)
+    SubscribableChannel createOrderDlqInputChnnel();
 
 }

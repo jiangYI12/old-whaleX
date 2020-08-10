@@ -7,6 +7,7 @@ import com.whalex.usercentre.service.ISysCustomerService;
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,6 +20,7 @@ import com.whalex.userCentre.api.fegin.ISysCustomerFegin;
  * date: 2020/7/2 21:27
  */
 @RestController
+@RequestMapping
 @AllArgsConstructor
 public class SysCustomerClient implements ISysCustomerFegin {
 

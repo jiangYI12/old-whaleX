@@ -34,7 +34,7 @@ public class PayGoodsOrder extends TenantEntity {
     @JsonSerialize(using = ToStringSerializer.class)
     private Long payOrderId;
 
-    private OrderStatusEnum orderStatus;
+    private String orderStatus;
 
     private static final long serialVersionUID = 1L;
 }

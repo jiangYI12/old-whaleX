@@ -8,4 +8,5 @@ package com.whalex.common.core.constant;
  */
 public interface SysServiceConstant {
     String USER_CENTRE_SERVICE = "whale-user-centre";
+    String WHALE_MESSAGE_CENTRE = "whale-message-centre";
 }

@@ -1,7 +1,5 @@
 package com.whalex.message.centre.listiner;
 
-import com.whalex.message.centre.api.payInPutChannel.IPayInPutChannel;
-import com.whalex.message.centre.api.payInPutChannel.IPayInPutDlqChannel;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.stream.annotation.EnableBinding;
@@ -22,8 +20,9 @@ import com.rabbitmq.client.Channel;
  * date: 2020/8/5 21:52
  */
 @Slf4j
-@Component
-@EnableBinding(value = {IPayInPutChannel.class,IPayInPutDlqChannel.class})
+@Deprecated
+//@Component
+//@EnableBinding(value = {IPayInPutChannel.class,IPayInPutDlqChannel.class})
 public class PayTestListiner {
 
     /**
@@ -43,27 +42,27 @@ public class PayTestListiner {
      * 监听dlq队列的消息
      * @param message
      */
-    @SneakyThrows
-    @StreamListener(IPayInPutDlqChannel.INPUT_CHANNEL)
-    public void IPayInPutDlqChannel(Message message) {
-        Channel channel = (Channel) message.getHeaders().get(AmqpHeaders.CHANNEL);
-        Long deliveryTag = (Long) message.getHeaders().get(AmqpHeaders.DELIVERY_TAG);
-        System.out.println("Input Stream 1 接受数据：" + deliveryTag);
-        System.out.println("消费完毕DLQ------------");
-        channel.basicNack(deliveryTag, false,false);
-    }
+//    @SneakyThrows
+//    @StreamListener(IPayInPutDlqChannel.INPUT_CHANNEL)
+//    public void IPayInPutDlqChannel(Message message) {
+//        Channel channel = (Channel) message.getHeaders().get(AmqpHeaders.CHANNEL);
+//        Long deliveryTag = (Long) message.getHeaders().get(AmqpHeaders.DELIVERY_TAG);
+//        System.out.println("Input Stream 1 接受数据：" + deliveryTag);
+//        System.out.println("消费完毕DLQ------------");
+//        channel.basicNack(deliveryTag, false,false);
+//    }
 
     /**
      * 监听正常队列
      * @param message
      */
-    @SneakyThrows
-    @StreamListener(IPayInPutChannel.INPUT_CHANNEL)
-    public void IPayInPutChannel(Message message) {
-        Channel channel = (Channel) message.getHeaders().get(AmqpHeaders.CHANNEL);
-        Long deliveryTag = (Long) message.getHeaders().get(AmqpHeaders.DELIVERY_TAG);
-        System.out.println("Input Stream 2 接受数据：" + deliveryTag);
-        System.out.println("消费完毕------------");
-        channel.basicNack(deliveryTag, false,false);
-    }
+//    @SneakyThrows
+//    @StreamListener(IPayInPutChannel.INPUT_CHANNEL)
+//    public void IPayInPutChannel(Message message) {
+//        Channel channel = (Channel) message.getHeaders().get(AmqpHeaders.CHANNEL);
+//        Long deliveryTag = (Long) message.getHeaders().get(AmqpHeaders.DELIVERY_TAG);
+//        System.out.println("Input Stream 2 接受数据：" + deliveryTag);
+//        System.out.println("消费完毕------------");
+//        channel.basicNack(deliveryTag, false,false);
+//    }
 }

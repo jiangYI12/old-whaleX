@@ -3,17 +3,11 @@ package com.whalex.common.security.auth;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.StrUtil;
+import cn.hutool.extra.spring.SpringUtil;
 import com.whalex.common.core.baseEntity.WhaleUsers;
 import com.whalex.common.core.util.AuthUtil;
-import com.zwx.core.secure.UserType;
-import com.zwx.core.secure.ZwxUser;
-import com.zwx.core.secure.handler.IPermissionHandler;
-import com.zwx.core.secure.utils.AuthUtil;
-import com.zwx.core.tool.constant.RoleConstant;
-import com.zwx.core.tool.utils.CollectionUtil;
-import com.zwx.core.tool.utils.Func;
-import com.zwx.core.tool.utils.SpringUtil;
-import com.zwx.core.tool.utils.StringUtil;
+import com.whalex.common.security.handler.IPermissionHandler;
+
 
 import java.util.List;
 

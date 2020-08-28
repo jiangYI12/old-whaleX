@@ -29,6 +29,7 @@ public class CreateOrderMessageServiceImpl implements ICreateOrderMessageService
 
     @Override
     public Boolean createOrderSendMsg(String id) {
+        //设置消息头 设置死信队列
         Map map = new HashMap();
         map.put(MqConstant.X_MESSAGE_TTL,ICreateOrderOutPutChannel.CREATE_ORDER_X_MESSAGE_TTL_VALUE);
         map.put(MqConstant.X_DEAD_LETTER_ROUTING_KEY,ICreateOrderOutPutChannel.CREATE_ORDER_X_DEAD_LETTER_ROUTING_KEY_VALUE);

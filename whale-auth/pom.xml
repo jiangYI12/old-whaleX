@@ -20,8 +20,8 @@
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+            <groupId>com.whaleX</groupId>
+            <artifactId>whale-common-sentinel</artifactId>
         </dependency>
         <!--配置中心客户端-->
         <dependency>

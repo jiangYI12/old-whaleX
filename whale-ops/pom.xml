@@ -12,6 +12,7 @@
     <artifactId>whale-ops</artifactId>
     <modules>
 
+        <module>whale-sentinel-dashboard</module>
     </modules>
 
 </project>

@@ -42,7 +42,8 @@ public class WhalexUrlBlockHandler implements BlockExceptionHandler {
 
 		response.setContentType(ContentType.JSON.toString());
 		response.setStatus(HttpStatus.TOO_MANY_REQUESTS.value());
-		response.getWriter().print(JSONUtil.toJsonStr(R.faile(e.getMessage())));
+		response.setCharacterEncoding("UTF-8");
+		response.getWriter().print(JSONUtil.toJsonStr(R.faile("系统繁忙,请稍后重试")));
 	}
 
 }

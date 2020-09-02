@@ -1,10 +1,6 @@
 
 package com.whalex.common.security.aspect;
 
-import cn.hutool.core.collection.ListUtil;
-import cn.hutool.core.util.StrUtil;
-import com.whalex.common.core.baseEntity.WhaleUsers;
-import com.whalex.common.core.util.AuthUtil;
 import com.whalex.common.security.annotation.PreAuth;
 import com.whalex.common.security.auth.AuthFun;
 import com.whalex.common.security.customException.AuthorizedException;
@@ -16,7 +12,6 @@ import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.expression.BeanFactoryResolver;
-import org.springframework.core.MethodParameter;
 import org.springframework.expression.Expression;
 import org.springframework.expression.ExpressionParser;
 import org.springframework.expression.spel.standard.SpelExpressionParser;
@@ -26,7 +21,6 @@ import org.springframework.util.StringUtils;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**

@@ -12,15 +12,9 @@
     <artifactId>whale-common-sentinel</artifactId>
 
     <dependencies>
-        <!-- 集群模式的client端 -->
         <dependency>
             <groupId>com.alibaba.csp</groupId>
-            <artifactId>sentinel-cluster-client-default</artifactId>
-        </dependency>
-        <!-- 集群模式的server端 -->
-        <dependency>
-            <groupId>com.alibaba.csp</groupId>
-            <artifactId>sentinel-cluster-server-default</artifactId>
+            <artifactId>sentinel-datasource-nacos</artifactId>
         </dependency>
         <dependency>
             <groupId>com.whaleX</groupId>

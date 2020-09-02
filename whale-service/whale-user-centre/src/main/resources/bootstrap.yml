@@ -5,9 +5,18 @@ spring:
   application:
     name: @artifactId@
   cloud:
+    sentinel:
+      datasource:
+         ds1:
+            nacos:
+              server-addr: 127.0.0.1:8848
+              data-id: whale-user-centre-flow-rules
+              group-id: DEFAULT_GROUP
+              data-type: json
+              rule-type: flow
     nacos:
       discovery:
-        server-addr: ${NACOS_HOST:whalex-nacos}:${NACOS_PORT:8848}
+          server-addr: ${NACOS_HOST:whalex-nacos}:${NACOS_PORT:8848}
       config:
         server-addr: ${spring.cloud.nacos.discovery.server-addr}
         file-extension: yml
@@ -15,4 +24,3 @@ spring:
           - application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
   profiles:
     active: @profiles.active@
-

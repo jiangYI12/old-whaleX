@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * Description:
+ * Description: 自动装配
  *
  * @author: 🐋鲸鱼
  * date: 2020/8/30 10:22

@@ -28,6 +28,7 @@
         <module>whale-common-gateway</module>
         <module>whale-common-redis</module>
         <module>whale-common-sentinel</module>
+        <module>whale-common-seata</module>
     </modules>
 
 

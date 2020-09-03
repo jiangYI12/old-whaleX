@@ -29,7 +29,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 /**
- *授权规则限流推送
+ *权限规则限流推送
  */
 @Component("authorityRuleNacosPublisher")
 public class AuthorityRuleNacosPublisher implements DynamicRulePublisher<List<AuthorityRuleEntity>> {

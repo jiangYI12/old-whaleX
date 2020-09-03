@@ -27,8 +27,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 /**
- * @author Eric Zhao
- * @since 1.4.0
+ * 限流规则
  */
 @Component("flowRuleNacosPublisher")
 public class FlowRuleNacosPublisher implements DynamicRulePublisher<List<FlowRuleEntity>> {

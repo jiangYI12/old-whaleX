@@ -26,7 +26,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-
+/**
+ * 熔断降级
+ */
 @Component("degradeNacosPublisher")
 public class DegradeRuleNacosPublisher implements DynamicRulePublisher<List<DegradeRuleEntity>> {
 

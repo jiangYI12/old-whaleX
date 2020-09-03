@@ -37,10 +37,6 @@ public class GatewaySentinelConfiguration {
         return new WhalexSentinelGatewayBlockExceptionHandler(viewResolvers,serverCodecConfigurer);
     }
 
-    @Bean
-    @Order(Ordered.HIGHEST_PRECEDENCE)
-    public GlobalFilter sentinelGatewayFilter() {
-        return new SentinelGatewayFilter();
-    }
+
 
 }

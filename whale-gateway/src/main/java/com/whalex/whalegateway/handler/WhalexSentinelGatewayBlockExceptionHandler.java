@@ -1,18 +1,15 @@
 package com.whalex.whalegateway.handler;
 
-import cn.hutool.http.ContentType;
-import cn.hutool.json.JSONUtil;
 import com.alibaba.csp.sentinel.adapter.gateway.sc.callback.GatewayCallbackManager;
 import com.alibaba.csp.sentinel.adapter.gateway.sc.exception.SentinelGatewayBlockExceptionHandler;
 import com.alibaba.csp.sentinel.slots.block.BlockException;
-import com.whalex.common.core.returnResult.R;
+import com.alibaba.csp.sentinel.slots.block.flow.FlowException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.buffer.DataBuffer;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.codec.HttpMessageWriter;
 import org.springframework.http.codec.ServerCodecConfigurer;
 import org.springframework.http.server.reactive.ServerHttpResponse;
-import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.server.ServerResponse;
 import org.springframework.web.reactive.result.view.ViewResolver;
 import org.springframework.web.server.ServerWebExchange;
@@ -45,6 +42,8 @@ public class WhalexSentinelGatewayBlockExceptionHandler extends SentinelGatewayB
         if(!BlockException.isBlockException(ex)){
             return Mono.error(ex);
         }
+        FlowException flowException = (FlowException)ex;
+        log.error("{} 发生流控:流控触发 数量-{}",flowException.getRule().getResource(),flowException.getRule().getCount());
         return handleBlockedRequest(exchange, ex)
                 .flatMap(response -> writeResponse(response, exchange));
     }
@@ -69,7 +68,7 @@ public class WhalexSentinelGatewayBlockExceptionHandler extends SentinelGatewayB
         ServerHttpResponse resp = exchange.getResponse();
         resp.setStatusCode(HttpStatus.TOO_MANY_REQUESTS);
         resp.getHeaders().add("Content-Type", "application/json;charset=UTF-8");
-        String json = "{\"code\": 429, \"data\": null, \"msg\": \"系统繁忙，请稍后再试\"}";
+        String json = "{\"code\": 429, \"data\": null, \"msg\": \"系统繁忙,请稍后再试\"}";
         DataBuffer buffer = resp.bufferFactory().wrap(json.getBytes(StandardCharsets.UTF_8));
         return resp.writeWith(Mono.just(buffer));
     }

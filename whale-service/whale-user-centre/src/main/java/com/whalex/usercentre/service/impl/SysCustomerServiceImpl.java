@@ -102,11 +102,6 @@ public class SysCustomerServiceImpl extends ServiceImpl<SysCustomerMapper, SysCu
     @Override
     public IPage<SysCustomerVO> getUserPage(SysCustomerVO sysCustomerVO) {
         IPage iPage = new Page(sysCustomerVO.getPageNo(),sysCustomerVO.getPageSize());
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         return  this.baseMapper.getUserDetailPage(iPage);
     }
 

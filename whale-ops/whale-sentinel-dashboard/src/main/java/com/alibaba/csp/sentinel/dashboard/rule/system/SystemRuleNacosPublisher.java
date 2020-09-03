@@ -16,7 +16,6 @@
 package com.alibaba.csp.sentinel.dashboard.rule.system;
 
 
-import com.alibaba.csp.sentinel.dashboard.datasource.entity.rule.ParamFlowRuleEntity;
 import com.alibaba.csp.sentinel.dashboard.datasource.entity.rule.SystemRuleEntity;
 import com.alibaba.csp.sentinel.dashboard.rule.DynamicRulePublisher;
 import com.alibaba.csp.sentinel.dashboard.rule.NacosConfigUtil;
@@ -29,7 +28,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 /**
- *热点规则限流推送
+ *系统规则限流推送
  */
 @Component("systemRuleNacosPublisher")
 public class SystemRuleNacosPublisher implements DynamicRulePublisher<List<SystemRuleEntity>> {

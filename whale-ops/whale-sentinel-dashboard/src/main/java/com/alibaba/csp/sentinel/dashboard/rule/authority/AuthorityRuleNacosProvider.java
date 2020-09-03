@@ -30,7 +30,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 热点限流规则获取
+ * 权限规则获取
  */
 @Component("authorityRuleNacosProvider")
 public class AuthorityRuleNacosProvider implements DynamicRuleProvider<List<AuthorityRuleEntity>> {

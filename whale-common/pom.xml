@@ -22,7 +22,7 @@
         <module>whale-common-security</module>
         <module>whale-common-swagger</module>
         <module>whale-common-core</module>
-        <module>whale-common-mybatisPlus</module>
+        <module>whale-common-datasource</module>
         <module>whale-common-tool</module>
         <module>whale-common-mvc</module>
         <module>whale-common-gateway</module>

@@ -22,9 +22,25 @@ public class AdviceController {
     @ResponseBody
     @ExceptionHandler(value = ServiceException.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    public R errorHandler(ServiceException ex) {
-        log.error("业务异常 {}",ex);
+    public R serviceExceptionHandler(ServiceException ex) {
+        log.error("业务异常 {}",ex.getMessage());
         return R.faile(ex.getMessage());
     }
 
+
+    @ResponseBody
+    @ExceptionHandler(value = RuntimeException.class)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    public R runtimeExceptionHandler(RuntimeException ex) {
+        log.error("运行时异常 {}",ex.getMessage());
+        return R.faile(ex.getMessage());
+    }
+
+    @ResponseBody
+    @ExceptionHandler(value = Throwable.class)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    public R runtimeExceptionHandler(Throwable ex) {
+        log.error("系统异常 {}",ex.getMessage());
+        return R.faile(ex.getMessage());
+    }
 }

@@ -20,6 +20,10 @@
         </dependency>
         <dependency>
             <groupId>com.whaleX</groupId>
+            <artifactId>whale-common-seata</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.whaleX</groupId>
             <artifactId>whale-common-sentinel</artifactId>
         </dependency>
         <!--注册中心客户端-->
@@ -59,6 +63,10 @@
         </dependency>
         <dependency>
             <groupId>com.whaleX</groupId>
+            <artifactId>whale-order-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.whaleX</groupId>
             <artifactId>whale-user-centre-api</artifactId>
         </dependency>
         <!-- druid 连接池 -->
@@ -76,7 +84,7 @@
         </dependency>
         <dependency>
             <groupId>com.whaleX</groupId>
-            <artifactId>whale-common-mybatisPlus</artifactId>
+            <artifactId>whale-common-datasource</artifactId>
         </dependency>
         <dependency>
             <groupId>com.whaleX</groupId>

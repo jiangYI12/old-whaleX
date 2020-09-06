@@ -9,6 +9,7 @@ import com.whalex.order.mapper.PayGoodsOrderMapper;
 import com.whalex.order.service.IPayGoodsOrderService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 
 @Service
@@ -27,7 +28,9 @@ public class PayGoodsOrderServiceImpl  extends ServiceImpl<PayGoodsOrderMapper,P
         return payGoodsOrder;
     }
 
+
     @Override
+    @Transactional
     public Boolean updateGoodOrderById(PayGoodsOrder payGoodsOrder) {
         return this.updateById(payGoodsOrder);
     }

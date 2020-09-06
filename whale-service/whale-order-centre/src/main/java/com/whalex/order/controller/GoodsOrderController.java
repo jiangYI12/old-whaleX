@@ -2,9 +2,7 @@ package com.whalex.order.controller;
 
 import com.whalex.common.core.returnResult.R;
 import com.whalex.order.api.entity.PayGoodsOrder;
-import com.whalex.order.api.entity.PayTradeOrder;
 import com.whalex.order.service.IPayGoodsOrderService;
-import com.whalex.order.service.IPayTradeOrderService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;

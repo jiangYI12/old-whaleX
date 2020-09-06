@@ -69,7 +69,7 @@
         </dependency>
         <dependency>
             <groupId>com.whaleX</groupId>
-            <artifactId>whale-common-mybatisPlus</artifactId>
+            <artifactId>whale-common-datasource</artifactId>
         </dependency>
         <dependency>
             <groupId>com.whaleX</groupId>

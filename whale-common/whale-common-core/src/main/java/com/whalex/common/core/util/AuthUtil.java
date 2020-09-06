@@ -20,7 +20,7 @@ import java.util.Map;
  */
 public class AuthUtil {
 
-    public static String JWT_PARSE_KEY = "JWT_PARSE_KEY";
+    public static String JWT_PARSE_KEY = "WHALEX_JWT_PARSE_KEY";
 
 
     public static WhaleUsers getWhaleXUser(){

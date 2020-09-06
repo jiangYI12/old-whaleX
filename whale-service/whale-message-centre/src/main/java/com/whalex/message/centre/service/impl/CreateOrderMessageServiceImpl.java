@@ -3,7 +3,6 @@ package com.whalex.message.centre.service.impl;
 import com.whalex.message.centre.api.channel.createOrderChannel.ICreateOrderOutPutChannel;
 import com.whalex.message.centre.api.constant.MqConstant;
 import com.whalex.message.centre.service.ICreateOrderMessageService;
-import com.whalex.order.api.entity.PayTradeOrder;
 import lombok.AllArgsConstructor;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.messaging.Message;

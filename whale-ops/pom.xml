@@ -13,6 +13,7 @@
     <modules>
 
         <module>whale-sentinel-dashboard</module>
+        <module>whale-seata-server</module>
     </modules>
 
 </project>

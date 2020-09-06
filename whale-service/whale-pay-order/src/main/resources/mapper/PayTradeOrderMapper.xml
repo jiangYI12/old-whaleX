@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="generate.PayTradeOrderMapper">
+  <resultMap id="BaseResultMap" type="com.whalex.pay.api.entity.PayTradeOrder">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="order_id" jdbcType="BIGINT" property="orderId" />
+    <result column="channel_id" jdbcType="VARCHAR" property="channelId" />
+    <result column="amount" jdbcType="VARCHAR" property="amount" />
+    <result column="currency" jdbcType="VARCHAR" property="currency" />
+    <result column="status" jdbcType="BOOLEAN" property="status" />
+    <result column="client_ip" jdbcType="VARCHAR" property="clientIp" />
+    <result column="device" jdbcType="VARCHAR" property="device" />
+    <result column="subject" jdbcType="VARCHAR" property="subject" />
+    <result column="body" jdbcType="VARCHAR" property="body" />
+    <result column="extra" jdbcType="VARCHAR" property="extra" />
+    <result column="channel_mch_id" jdbcType="VARCHAR" property="channelMchId" />
+    <result column="channel_order_no" jdbcType="VARCHAR" property="channelOrderNo" />
+    <result column="err_code" jdbcType="VARCHAR" property="errCode" />
+    <result column="err_msg" jdbcType="VARCHAR" property="errMsg" />
+    <result column="param1" jdbcType="VARCHAR" property="param1" />
+    <result column="param2" jdbcType="VARCHAR" property="param2" />
+    <result column="notify_url" jdbcType="VARCHAR" property="notifyUrl" />
+    <result column="notify_count" jdbcType="TINYINT" property="notifyCount" />
+    <result column="last_notify_time" jdbcType="BIGINT" property="lastNotifyTime" />
+    <result column="expire_time" jdbcType="BIGINT" property="expireTime" />
+    <result column="pay_succ_time" jdbcType="BIGINT" property="paySuccTime" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="is_delete" jdbcType="VARCHAR" property="isDelete" />
+    <result column="create_user" jdbcType="BIGINT" property="createUser" />
+    <result column="update_user" jdbcType="BIGINT" property="updateUser" />
+    <result column="tenant_code" jdbcType="VARCHAR" property="tenantCode" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    order_id, channel_id, amount, currency, `status`, client_ip, device, subject, body, 
+    extra, channel_mch_id, channel_order_no, err_code, err_msg, param1, param2, notify_url, 
+    notify_count, last_notify_time, expire_time, pay_succ_time, create_time, update_time, 
+    is_delete, create_user, update_user, tenant_code
+  </sql>
+
+</mapper>

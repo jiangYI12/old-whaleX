@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @FeignClient(value = SysServiceConstant.USER_CENTRE_SERVICE)
 public interface ISysCustomerFegin {
 
-    String PREFIX =  FeginClientURL.PREFIX + "/SysCustomerFegin";
+    String PREFIX =  FeginClientURL.PREFIX + "/sysCustomerFegin";
 
     String GET_SYSCUSTOMER_BY_ACCOUNT = PREFIX + "/getSysCustomerByAccount";
 

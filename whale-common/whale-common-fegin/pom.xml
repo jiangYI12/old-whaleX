@@ -13,10 +13,25 @@
     <artifactId>whale-common-fegin</artifactId>
 
     <dependencies>
+        <dependency>
+            <groupId>com.whaleX</groupId>
+            <artifactId>whale-common-tool</artifactId>
+        </dependency>
+        <!--Feign-->
+        <dependency>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-okhttp</artifactId>
+        </dependency>
         <!--feign 依赖-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
 

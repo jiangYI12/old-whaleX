@@ -4,6 +4,7 @@
   <resultMap id="BaseResultMap" type="com.whalex.order.api.entity.PayGoodsOrder">
     <id column="goods_order_id" jdbcType="INTEGER" property="goodsOrderId" />
     <result column="id" jdbcType="BIGINT" property="id" />
+    <result column="order_no" jdbcType="VARCHAR" property="orderNo" />
     <result column="goods_id" jdbcType="VARCHAR" property="goodsId" />
     <result column="goods_name" jdbcType="VARCHAR" property="goodsName" />
     <result column="amount" jdbcType="VARCHAR" property="amount" />
@@ -18,7 +19,7 @@
     <result column="tenant_code" jdbcType="VARCHAR" property="tenantCode" />
   </resultMap>
   <sql id="Base_Column_List">
-    goods_order_id, id, goods_id, goods_name, amount, user_id, `status`, pay_order_id, 
+    goods_order_id, id, goods_id, goods_name, amount, user_id, `status`, pay_order_id, order_no,
     create_time, update_time, is_delete, create_user, update_user, tenant_code
   </sql>
 </mapper>

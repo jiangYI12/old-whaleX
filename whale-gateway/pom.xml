@@ -18,8 +18,8 @@
             <artifactId>whale-common-core</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.whaleX</groupId>
-            <artifactId>whale-common-sentinel</artifactId>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
         </dependency>
         <!--sentinel 依赖-->
         <dependency>

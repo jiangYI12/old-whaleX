@@ -12,6 +12,12 @@
     <artifactId>whale-common-datasource</artifactId>
 
     <dependencies>
+        <!-- druid 连接池 -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <scope>provided</scope>
+        </dependency>
         <dependency>
             <groupId>com.whaleX</groupId>
             <artifactId>whale-common-core</artifactId>

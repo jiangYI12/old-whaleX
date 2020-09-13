@@ -16,13 +16,17 @@ import lombok.Data;
 @Data
 @TableName("pay_goods_order")
 public class PayGoodsOrder extends TenantEntity {
+
     /**
      * 商品订单ID
      */
     @JsonSerialize(using = ToStringSerializer.class)
     private Long goodsOrderId;
 
+    @JsonSerialize(using = ToStringSerializer.class)
     private String goodsId;
+
+    private String orderNo;
 
     private String goodsName;
 

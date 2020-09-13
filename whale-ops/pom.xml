@@ -14,6 +14,8 @@
 
         <module>whale-sentinel-dashboard</module>
         <module>whale-seata-server</module>
+        <module>whale-skywalking</module>
+        <module>whale-admin-server</module>
     </modules>
 
 </project>

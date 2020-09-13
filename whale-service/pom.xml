@@ -18,5 +18,6 @@
         <module>whale-pay-order</module>
         <module>whale-system-centre</module>
         <module>whale-order-centre</module>
+        <module>whale-search-centre</module>
     </modules>
 </project>

@@ -29,7 +29,7 @@ public class TokenFilter implements GlobalFilter,Ordered {
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         ServerHttpRequest request = exchange.getRequest();
         //如果不是获取token 并且 请求头中没有 Authorization 就不解析JWT
-        if(!request.getPath().toString().equals("/oauth/token")&&request.getHeaders().containsKey(SecurityConstants.AUTHORIZATION)) {
+        if(!request.getPath().toString().matches("/oauth/.*")&&request.getHeaders().containsKey(SecurityConstants.AUTHORIZATION)) {
             String jwt = request.getHeaders().getFirst(SecurityConstants.AUTHORIZATION).replace(SecurityConstants.TOKEN_PREFIX,"").trim();
             if (StringUtils.isEmpty(jwt)) {
                 return chain.filter(exchange);

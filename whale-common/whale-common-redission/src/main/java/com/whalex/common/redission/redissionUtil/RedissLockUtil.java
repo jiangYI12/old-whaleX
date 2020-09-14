@@ -1,4 +1,4 @@
-package com.whalex.common.redis.redissionUtil;
+package com.whalex.common.redission.redissionUtil;
 
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;

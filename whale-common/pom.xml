@@ -30,6 +30,7 @@
         <module>whale-common-sentinel</module>
         <module>whale-common-seata</module>
         <module>whale-common-es</module>
+        <module>whale-common-redission</module>
     </modules>
 
 

@@ -7,7 +7,6 @@ import com.whalex.common.fegin.annotation.EnableWhalexFeign;
 
 @EnableWhalexFeign
 @SpringCloudApplication
-@EnableAuthorizationServer
 public class WhaleAuthApplication {
 
     public static void main(String[] args) {

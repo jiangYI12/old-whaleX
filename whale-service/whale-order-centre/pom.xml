@@ -78,7 +78,7 @@
         </dependency>
         <dependency>
             <groupId>com.whaleX</groupId>
-            <artifactId>whale-common-redis</artifactId>
+            <artifactId>whale-common-redission</artifactId>
         </dependency>
         <dependency>
             <groupId>com.whaleX</groupId>

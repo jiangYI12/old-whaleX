@@ -1,5 +1,7 @@
 package com.whalex.usercentre;
 
+
+import com.whalex.common.swagger.annotation.EnableWhalexSwagger2;
 import org.springframework.boot.SpringApplication;
 import org.springframework.cloud.client.SpringCloudApplication;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -12,6 +14,7 @@ import com.whalex.common.fegin.annotation.EnableWhalexFeign;
 //激活方法上的Preauthorize 注解
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 @SpringCloudApplication
+@EnableWhalexSwagger2
 public class WhaleUserCentreApplication {
 
     public static void main(String[] args) {

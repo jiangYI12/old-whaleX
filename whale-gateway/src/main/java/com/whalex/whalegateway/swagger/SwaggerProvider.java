@@ -17,6 +17,7 @@
 
 package com.whalex.whalegateway.swagger;
 
+import com.whalex.whalegateway.config.FilterIgnorePropertiesConfig;
 import lombok.AllArgsConstructor;
 import org.springframework.cloud.gateway.route.RouteDefinition;
 import org.springframework.cloud.gateway.route.RouteDefinitionRepository;
@@ -43,6 +44,7 @@ public class SwaggerProvider implements SwaggerResourcesProvider {
 
 	private final RouteDefinitionRepository routeDefinitionRepository;
 
+	private final FilterIgnorePropertiesConfig filterIgnorePropertiesConfig;
 
 	@Override
 	public List<SwaggerResource> get() {
@@ -51,6 +53,8 @@ public class SwaggerProvider implements SwaggerResourcesProvider {
 		return routes.stream()
 				.flatMap(routeDefinition -> routeDefinition.getPredicates().stream()
 						.filter(predicateDefinition -> "Path".equalsIgnoreCase(predicateDefinition.getName()))
+						.filter(predicateDefinition -> !filterIgnorePropertiesConfig.getSwaggerProviders()
+								.contains(routeDefinition.getId()))
 						.map(predicateDefinition -> swaggerResource(routeDefinition.getId(),
 								predicateDefinition.getArgs().get(NameUtils.GENERATED_NAME_PREFIX + "0").replace("/**",
 										API_URI))))

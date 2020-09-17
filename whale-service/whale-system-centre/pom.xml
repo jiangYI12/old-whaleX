@@ -90,6 +90,10 @@
             <groupId>com.whaleX</groupId>
             <artifactId>whale-system-api</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.whaleX</groupId>
+            <artifactId>whale-common-swagger</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

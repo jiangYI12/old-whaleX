@@ -12,7 +12,22 @@
     <artifactId>whale-user-centre-api</artifactId>
 
     <dependencies>
-
+        <dependency>
+            <groupId>com.whaleX</groupId>
+            <artifactId>whale-common-datasource</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.whaleX</groupId>
+            <artifactId>whale-common-fegin</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.whaleX</groupId>
+            <artifactId>whale-common-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.whaleX</groupId>
+            <artifactId>whale-common-mvc</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

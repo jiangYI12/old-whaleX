@@ -46,5 +46,23 @@
              <version>${whalex.version}</version>
          </dependency>
      </dependencies>
+
     </dependencyManagement>
+    <!-- 使用分发管理将本项目打成jar包，直接上传到指定服务器 -->
+    <distributionManagement>
+        <!--正式版本-->
+        <repository>
+            <!-- nexus服务器中用户名：在settings.xml中<server>的id-->
+            <id>whalex-releases</id>
+            <!-- 这个名称自己定义 -->
+            <name>Release repository</name>
+            <url>http://192.168.72.133:8081/repository/whalex-releases/</url>
+        </repository>
+        <!--快照-->
+        <snapshotRepository>
+            <id>whalex-snapshots</id>
+            <name>Snapshots repository</name>
+            <url>http://192.168.72.133:8081/repository/whalex-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>

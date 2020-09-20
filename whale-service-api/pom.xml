@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>whalex</artifactId>
+        <groupId>com.whaleX</groupId>
+        <version>1.0.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>whale-service-api</artifactId>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>whale-user-centre-api</module>
+        <module>whale-service-bom</module>
+        <module>whale-system-api</module>
+        <module>whale-pay-api</module>
+        <module>whale-message-centre-api</module>
+        <module>whale-order-api</module>
+        <module>whale-search-centre-api</module>
+    </modules>
+
+
+    <!-- 使用分发管理将本项目打成jar包，直接上传到指定服务器 -->
+    <distributionManagement>
+        <!--正式版本-->
+        <repository>
+            <!-- nexus服务器中用户名：在settings.xml中<server>的id-->
+            <id>whalex-releases</id>
+            <!-- 这个名称自己定义 -->
+            <name>Release repository</name>
+            <url>http://192.168.72.133:8081/repository/whalex-releases/</url>
+        </repository>
+        <!--快照-->
+        <snapshotRepository>
+            <id>whalex-snapshots</id>
+            <name>Snapshots repository</name>
+            <url>http://192.168.72.133:8081/repository/whalex-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+</project>

@@ -1,0 +1,23 @@
+server:
+  port: 80
+
+spring:
+  application:
+    name: @artifactId@
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${NACOS_HOST:whalex-nacos}:${NACOS_PORT:8848}
+      config:
+        server-addr: ${spring.cloud.nacos.discovery.server-addr}
+        file-extension: yml
+        shared-configs:
+          - application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+    gateway:
+      routes:
+        - id: whale-auth
+          uri: lb://whale-auth
+          predicates:
+            - Path=//whale-auth
+  profiles:
+    active: @profiles.active@

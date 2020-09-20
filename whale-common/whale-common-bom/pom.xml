@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>spring-cloud-dependencies-parent</artifactId>
+        <groupId>org.springframework.cloud</groupId>
+        <version>2.3.0.RELEASE</version>
+        <relativePath/>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>pom</packaging>
+    <version>${whalex.version}</version>
+    <artifactId>whale-common-bom</artifactId>
+
+    <properties>
+        <whalex.version>1.0.0</whalex.version>
+        <mybatis-plus.version>3.3.2</mybatis-plus.version>
+        <druid.version>1.1.21</druid.version>
+        <dynamic-ds.version>3.0.0</dynamic-ds.version>
+        <mysql.connector.version>8.0.20</mysql.connector.version>
+        <swagger.core.version>1.5.22</swagger.core.version>
+        <groovy.version>3.0.3</groovy.version>
+        <security.oauth.version>2.3.6.RELEASE</security.oauth.version>
+        <fastjson.version>1.2.69</fastjson.version>
+        <aliyun.version>3.0.52.ALL</aliyun.version>
+        <alibaba.seata.version>1.3.0</alibaba.seata.version>
+        <redisson>3.13.4</redisson>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>io.seata</groupId>
+                <artifactId>seata-spring-boot-starter</artifactId>
+                <version>${alibaba.seata.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.whaleX</groupId>
+                <artifactId>whale-common-core</artifactId>
+                <version>${whalex.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.whaleX</groupId>
+                <artifactId>whale-common-tool</artifactId>
+                <version>${whalex.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.whaleX</groupId>
+                <artifactId>whale-common-redis</artifactId>
+                <version>${whalex.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.whaleX</groupId>
+                <artifactId>whale-common-redission</artifactId>
+                <version>${whalex.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.whaleX</groupId>
+                <artifactId>whale-common-fegin</artifactId>
+                <version>${whalex.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.whaleX</groupId>
+                <artifactId>whale-common-mvc</artifactId>
+                <version>${whalex.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.whaleX</groupId>
+                <artifactId>whale-common-sentinel</artifactId>
+                <version>${whalex.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.whaleX</groupId>
+                <artifactId>whale-common-seata</artifactId>
+                <version>${whalex.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.whaleX</groupId>
+                <artifactId>whale-common-security</artifactId>
+                <version>${whalex.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.whaleX</groupId>
+                <artifactId>whale-common-gateway</artifactId>
+                <version>${whalex.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.whaleX</groupId>
+                <artifactId>whale-common-swagger</artifactId>
+                <version>${whalex.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.whaleX</groupId>
+                <artifactId>whale-common-datasource</artifactId>
+                <version>${whalex.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.whaleX</groupId>
+                <artifactId>whale-common-log</artifactId>
+                <version>${whalex.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.whaleX</groupId>
+                <artifactId>whale-common-tool</artifactId>
+                <version>${whalex.version}</version>
+            </dependency>
+            <!--mybatis plus extension,包含了mybatis plus core-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-extension</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <!--mybatis-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+                <version>${dynamic-ds.version}</version>
+            </dependency>
+            <!-- druid 连接池 -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+            <!--mysql 驱动-->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.connector.version}</version>
+            </dependency>
+            <!--fastjson-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+            <!--swagger 最新依赖内置版本-->
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-models</artifactId>
+                <version>${swagger.core.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-annotations</artifactId>
+                <version>${swagger.core.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alipay.sdk</groupId>
+                <artifactId>alipay-sdk-java</artifactId>
+                <version>${aliyun.version}</version>
+            </dependency>
+            <!--定义groovy 版本-->
+            <dependency>
+                <groupId>org.codehaus.groovy</groupId>
+                <artifactId>groovy</artifactId>
+                <version>${groovy.version}</version>
+            </dependency>
+            <!--稳定版本，替代spring security bom内置-->
+            <dependency>
+                <groupId>org.springframework.security.oauth</groupId>
+                <artifactId>spring-security-oauth2</artifactId>
+                <version>${security.oauth.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.redisson</groupId>
+                <artifactId>redisson-spring-boot-starter</artifactId>
+                <version>${redisson}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <!-- 使用分发管理将本项目打成jar包，直接上传到指定服务器 -->
+    <distributionManagement>
+        <!--正式版本-->
+        <repository>
+            <!-- nexus服务器中用户名：在settings.xml中<server>的id-->
+            <id>whalex-releases</id>
+            <!-- 这个名称自己定义 -->
+            <name>Release repository</name>
+            <url>http://192.168.72.133:8081/repository/whalex-releases/</url>
+        </repository>
+        <!--快照-->
+        <snapshotRepository>
+            <id>whalex-snapshots</id>
+            <name>Snapshots repository</name>
+            <url>http://192.168.72.133:8081/repository/whalex-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+</project>

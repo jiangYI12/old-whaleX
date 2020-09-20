@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.whalex.usercentre.mapper.SysMenuMapper">
+  <resultMap id="BaseResultMap" type="com.whalex.userCentre.api.entity.SysMenu">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="parent_id" jdbcType="BIGINT" property="parentId" />
+    <result column="path" jdbcType="VARCHAR" property="path" />
+    <result column="permission_name" jdbcType="VARCHAR" property="permissionName" />
+    <result column="icon" jdbcType="VARCHAR" property="icon" />
+    <result column="code" jdbcType="INTEGER" property="code" />
+    <result column="tenant_code" jdbcType="VARCHAR" property="tenantCode" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="is_delete" jdbcType="INTEGER" property="isDelete" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+  </resultMap>
+  
+  <sql id="Base_Column_List">
+    id, `name`, parent_id, permission_name, icon, code, tenant_code, create_time, update_time, 
+    is_delete, `status`,path
+  </sql>
+
+  <select id="getMenuByRoleIds" resultType="com.whalex.userCentre.api.entity.SysMenu">
+    SELECT sym.* FROM sys_menu sym
+    RIGHT JOIN sys_role_menu srm on srm.menu_id = sym.id
+   <where>
+     <foreach collection="roleIds" open="srm.role_id in (" close=")" separator="," item="roleId">
+       #{roleId}
+     </foreach>
+   </where>
+  </select>
+
+
+  <select id="getMenuByRoleId" resultType="com.whalex.userCentre.api.entity.SysMenu">
+    SELECT sym.* FROM sys_menu sym
+    RIGHT JOIN sys_role_menu srm on srm.menu_id = sym.id
+    WHERE srm.role_id = #{id}
+  </select>
+</mapper>

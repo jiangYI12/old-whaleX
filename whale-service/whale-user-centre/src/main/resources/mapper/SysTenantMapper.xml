@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="generate.SysTenantMapper">
+  <resultMap id="BaseResultMap" type="com.whalex.userCentre.api.entity.SysTenant">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="componey_name" jdbcType="VARCHAR" property="componeyName" />
+    <result column="tenant_code" jdbcType="VARCHAR" property="tenantCode" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, componey_name, tenant_code, create_time, update_time, `status`
+  </sql>
+
+</mapper>

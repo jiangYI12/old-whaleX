@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="generate.PayRefundOrderMapper">
+  <resultMap id="BaseResultMap" type="com.whalex.pay.api.entity.PayRefundOrder">
+    <id column="refund_order_id" jdbcType="VARCHAR" property="refundOrderId" />
+    <result column="id" jdbcType="BIGINT" property="id" />
+    <result column="pay_order_id" jdbcType="BIGINT" property="payOrderId" />
+    <result column="channel_pay_order_no" jdbcType="VARCHAR" property="channelPayOrderNo" />
+    <result column="mch_id" jdbcType="VARCHAR" property="mchId" />
+    <result column="mch_refund_no" jdbcType="VARCHAR" property="mchRefundNo" />
+    <result column="channel_id" jdbcType="VARCHAR" property="channelId" />
+    <result column="pay_amount" jdbcType="VARCHAR" property="payAmount" />
+    <result column="refund_amount" jdbcType="BIGINT" property="refundAmount" />
+    <result column="currency" jdbcType="VARCHAR" property="currency" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="result" jdbcType="TINYINT" property="result" />
+    <result column="client_ip" jdbcType="VARCHAR" property="clientIp" />
+    <result column="device" jdbcType="VARCHAR" property="device" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="channel_user" jdbcType="VARCHAR" property="channelUser" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="channel_mch_id" jdbcType="VARCHAR" property="channelMchId" />
+    <result column="channel_order_no" jdbcType="VARCHAR" property="channelOrderNo" />
+    <result column="channel_err_code" jdbcType="VARCHAR" property="channelErrCode" />
+    <result column="channel_err_msg" jdbcType="VARCHAR" property="channelErrMsg" />
+    <result column="extra" jdbcType="VARCHAR" property="extra" />
+    <result column="notifyUrl" jdbcType="VARCHAR" property="notifyurl" />
+    <result column="param1" jdbcType="VARCHAR" property="param1" />
+    <result column="param2" jdbcType="VARCHAR" property="param2" />
+    <result column="expire_time" jdbcType="TIMESTAMP" property="expireTime" />
+    <result column="refund_succ_time" jdbcType="TIMESTAMP" property="refundSuccTime" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="is_delete" jdbcType="VARCHAR" property="isDelete" />
+    <result column="create_user" jdbcType="BIGINT" property="createUser" />
+    <result column="update_user" jdbcType="BIGINT" property="updateUser" />
+    <result column="tenant_code" jdbcType="VARCHAR" property="tenantCode" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    refund_order_id, id, pay_order_id, channel_pay_order_no, mch_id, mch_refund_no, channel_id, 
+    pay_amount, refund_amount, currency, `status`, `result`, client_ip, device, remark, 
+    channel_user, username, channel_mch_id, channel_order_no, channel_err_code, channel_err_msg, 
+    extra, notifyUrl, param1, param2, expire_time, refund_succ_time, create_time, update_time, 
+    is_delete, create_user, update_user, tenant_code
+  </sql>
+
+</mapper>

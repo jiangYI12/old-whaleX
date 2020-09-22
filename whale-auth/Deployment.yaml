@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: whale-auth
+  labels:
+    app: whale-auth
+    version: 1.0.0
+spec:
+  selector:
+    matchLabels:
+      app: whale-auth
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: whale-auth
+    spec:
+      containers:
+        - name: whale-user-centre
+          image: 192.168.72.133:2375/whale-auth-${metadata.labels.version}
+          imagePullPolicy: Always

@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: whale-gateway
+  labels:
+    app: whale-gateway
+    version: 1.0.0
+spec:
+  selector:
+    matchLabels:
+      app: whale-gateway
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: whale-gateway
+    spec:
+      containers:
+        - name: whale-user-centre
+          image: 192.168.72.133:2375/whale-gateway-${metadata.labels.version}
+          imagePullPolicy: Always

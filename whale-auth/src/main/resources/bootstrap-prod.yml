@@ -1,0 +1,21 @@
+server:
+  port: 10004
+
+spring:
+  application:
+    name: @artifactId@
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${NACOS_HOST:nacos-headless}:${NACOS_PORT:8848}
+        username: nacos
+        password: nacos
+      config:
+        username: nacos
+        password: nacos
+        server-addr: ${spring.cloud.nacos.discovery.server-addr}
+        file-extension: yml
+        shared-configs:
+          - application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+  profiles:
+    active: @profiles.active@

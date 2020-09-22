@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: whale-user-centre
+  labels:
+    app: whale-user-centre
+    version: 1.0.0
+spec:
+  selector:
+    matchLabels:
+      app: whale-user-centre
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: whale-user-centre
+    spec:
+      containers:
+        - name: whale-user-centre
+          image: 192.168.72.133:2375/whale-user-centre-${metadata.labels.version}
+          imagePullPolicy: Always

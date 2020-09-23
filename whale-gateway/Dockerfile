@@ -19,6 +19,7 @@ EXPOSE 80
 
 #将本地项目jar包拷贝到Docker容器中的位置
 ADD ./target/whale-gateway.jar ./
-#ADD ./pigx-upms/pigx-upms-biz/target/pigx-upms-biz.jar ./
+
+ADD ./skywalking-8.1.0-Beta.tar.gz ./skywalking
 
 CMD sleep 30;java $JAVA_OPTS -jar whale-gateway.jar

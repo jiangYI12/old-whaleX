@@ -1,0 +1,27 @@
+variables:
+  MAVEN_OPTS: "-Dmaven.repo.local=/root/.m2/repository"
+  DOCKER_DRIVER: overlay2
+  PROJECT_NAME: $CI_PROJECT_NAME
+  PROJECT_VERSION: "1.0.0"
+
+stages:
+  - build
+  - deploy
+
+maven-build:
+  stage: build
+  script:
+    - mvn package -B -DskipTests
+    - mv target/$CI_PROJECT_NAME*.jar target/app.jar
+    - docker login -u $DOCKER_HUB_ACCOUNT -p $DOCKER_HUB_PASSWORD $DOCKER_HUB_ADDRESS
+    - docker build -t $DOCKER_HUB_ADDRESS_WHALEX:$PROJECT_NAME-$PROJECT_VERSION .
+    - docker push $DOCKER_HUB_REPO:$PROJECT_NAME-$CI_COMMIT_SHA-$PROJECT_VERSION
+
+k8s-deploy:
+  stage: deploy
+  image:
+    name: 192.168.72.133:30009/whalex/kubectl:1.18.4
+    entrypoint: [""]
+
+  script:
+    - kubectl apply -f Deployment.yaml

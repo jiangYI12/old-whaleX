@@ -17,6 +17,7 @@
         <module>whale-service</module>
         <module>whale-service-api</module>
         <module>whale-ops</module>
+        <module>whale-demo</module>
     </modules>
 
     <properties>

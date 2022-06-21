@@ -19,7 +19,7 @@
         <mybatis-plus.version>3.3.2</mybatis-plus.version>
         <druid.version>1.1.21</druid.version>
         <dynamic-ds.version>3.0.0</dynamic-ds.version>
-        <mysql.connector.version>8.0.20</mysql.connector.version>
+        <mysql.connector.version>8.0.28</mysql.connector.version>
         <swagger.core.version>1.5.22</swagger.core.version>
         <groovy.version>3.0.3</groovy.version>
         <security.oauth.version>2.3.6.RELEASE</security.oauth.version>

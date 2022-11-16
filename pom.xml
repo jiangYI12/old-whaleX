@@ -25,7 +25,7 @@
         <spring-cloud-alibaba.version>2.2.1.RELEASE</spring-cloud-alibaba.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
-        <jackson.version>2.11.1</jackson.version>
+        <jackson.version>2.12.7.1</jackson.version>
         <maven.compiler.target>1.8</maven.compiler.target>
         <hutool.version>5.3.7</hutool.version>
         <maven.compiler.version>3.6.1</maven.compiler.version>
